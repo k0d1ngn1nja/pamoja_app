@@ -25,15 +25,18 @@ end
 
 get '/sellers/:id' do
   @seller = Seller.find params[:id]
-#  image = @seller.image.new()
-#  image.file = params[:image]
-#  image.save
   erb :'/sellers/show'
 end
 
 get '/sellers' do
   @seller = Seller.all
   erb :'/sellers/index'
+end
+
+get '/products' do
+  @product = Product.all
+  erb :'/products/index'
+
 end
 
 get '/sellers/:id' do
