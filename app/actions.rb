@@ -75,13 +75,16 @@ post '/sellers/new' do
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
   
-  File.open("./public/images/sellers/#{@seller.id}_seller.png", 'wb') do |f|
+  @extension= @filename.match(/(\.(?i)(jpg|png|gif|bmp|jpeg))\z/).to_s
+
     
+
+  File.open("./public/images/sellers/#{@seller.id}_seller#{@extension}", 'wb') do |f|
     f.write(file.read)
   end
 
-  @seller.update(image: "/images/sellers/#{@seller.id}_seller.png" )
-
+  @seller.update(image: "/images/sellers/#{@seller.id}_seller#{@extension}" )
+  binding.pry
   if @seller.save
     redirect '/sellers'
   else
