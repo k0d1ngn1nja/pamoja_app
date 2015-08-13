@@ -1,7 +1,9 @@
 # Homepage (Root path)
 helpers do
-  def current_user
-    @current_user ||= User.find_by(id: session[:seller_id]) if session[:seller_id]
+  def current_user 
+    unless session[:seller_id].nil?
+      Seller.find(session[:seller_id])
+    end
   end
 end
 
@@ -51,10 +53,25 @@ post '/products/new' do
   @product = Product.create(
     seller_id: params[:seller_id],
     buyer_id: params[:buyer_id],
-    image: params[:image],
+    name: params[:name],
+    description: params[:description],
     category: params[:category],
-    price: params[:price]
+    price: params[:price],
     )    
+
+  @filename = params[:file][:filename]
+  file = params[:file][:tempfile]
+  
+  @extension= @filename.match(/(\.(?i)(jpg|png|gif|bmp|jpeg))\z/).to_s
+
+  File.open("./public/images/products/#{@product.id}_product#{@extension}", 'wb') do |f|
+    f.write(file.read)
+  end
+
+  @image = Image.create( 
+    product_id: @product.id
+   )
+  @image.update(file_path: "/images/products/#{@product.id}_#{@image.id}_product#{@extension}")
   if @product.save
     redirect '/product/:id'
   else
@@ -87,10 +104,10 @@ post '/sellers/new' do
     file_path: "/images/sellers/#{@seller.id}_seller#{@extension}", 
     seller_id: @seller.id
     )
-  binding.pry
   
   if @seller.save
     redirect '/sellers'
+    session[:seller_id] = @seller.id
   else
     erb :'/sellers/new'
   end
