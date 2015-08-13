@@ -83,8 +83,12 @@ post '/sellers/new' do
     f.write(file.read)
   end
 
-  @seller.update(image: "/images/sellers/#{@seller.id}_seller#{@extension}" )
+  @image = Image.create(
+    file_path: "/images/sellers/#{@seller.id}_seller#{@extension}", 
+    seller_id: @seller.id
+    )
   binding.pry
+  
   if @seller.save
     redirect '/sellers'
   else

@@ -23,10 +23,19 @@ ActiveRecord::Schema.define(version: 20150813005413) do
     t.datetime "updated_at"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "seller_id"
+    t.string   "file_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer  "seller_id"
     t.integer  "buyer_id"
-    t.string   "image"
+    t.string   "name"
+    t.string   "description"
     t.string   "category"
     t.integer  "price"
     t.datetime "created_at"
@@ -34,7 +43,6 @@ ActiveRecord::Schema.define(version: 20150813005413) do
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.string   "image"
     t.string   "video"
     t.string   "name"
     t.string   "location"
