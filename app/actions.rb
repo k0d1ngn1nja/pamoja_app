@@ -67,9 +67,18 @@ post '/sellers/new' do
     blurb: params[:blurb],
     specialty: params[:specialty],
     video: params[:video],
-    image: params[:image]
-    )
-  binding.pry
+  )
+
+  @filename = params[:file][:filename]
+  file = params[:file][:tempfile]
+  
+  File.open("./public/images/sellers/#{@seller.id}_#{@filename}", 'wb') do |f|
+    
+    f.write(file.read)
+  end
+
+  @seller.update(image: "../public/images/sellers/#{@seller.id}_#{@filename}" )
+
   if @seller.save
     redirect '/sellers'
   else
