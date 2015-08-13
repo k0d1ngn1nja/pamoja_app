@@ -16,4 +16,6 @@ configure do
     autoload ActiveSupport::Inflector.camelize(filename), model_file
   end
 
+  # itterate through files in uploaders
+  Dir[APP_ROOT.join('app', 'uploader', '*.rb')].each { |file| require file }
 end

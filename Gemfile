@@ -8,7 +8,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'pg'
-
+gem 'carrierwave'
 gem 'puma'
 gem 'tux'
 

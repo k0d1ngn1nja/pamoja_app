@@ -11,6 +11,11 @@ get '/sellers/new' do
   erb :'sellers/new'
 end
 
+get '/sellers/:id' do
+ # @seller= Seller.find(params:[id])
+ erb :'sellers/show'
+end
+
 post '/products/new' do
 end
 
@@ -23,7 +28,7 @@ post '/sellers/new' do
     specialty: params[:specialty],
     video: params[:video]
     )
-  binding.pry
+  redirect '/sellers/:id'
 end
 
 
