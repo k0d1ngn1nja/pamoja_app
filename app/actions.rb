@@ -1,22 +1,54 @@
 # Homepage (Root path)
+helpers do
+  def current_user
+    @current_user ||= User.find_by(id: session[:seller_id]) if session[:seller_id]
+  end
+end
+
 get '/' do
   erb :index
 end
 
 get '/products/new' do
-  erb :'products/new'
+  erb :'/products/new'
 end
 
 get '/sellers/new' do
-  erb :'sellers/new'
+  erb :'/sellers/new'
+end
+
+get '/products/:id' do
+  erb :'/products/show'
 end
 
 get '/sellers/:id' do
- # @seller= Seller.find(params:[id])
+  @seller = Seller.find params[:id]
+  erb :'/sellers/show'
+end
+
+get '/sellers' do
+  @seller = Seller.all
+  erb :'/sellers/index'
+end
+
+get '/sellers/:id' do
+ @seller= Seller.find(params:[id])
  erb :'sellers/show'
 end
 
 post '/products/new' do
+  @product = Product.create(
+    seller_id: params[:seller_id],
+    buyer_id: params[:buyer_id],
+    image: params[:image],
+    category: params[:category],
+    price: params[:price]
+    )    
+  if @product.save
+    redirect '/product/:id'
+  else
+    erb:'/product/new'
+  end
 end
 
 post '/sellers/new' do
@@ -28,7 +60,19 @@ post '/sellers/new' do
     specialty: params[:specialty],
     video: params[:video]
     )
-  redirect '/sellers/:id'
+  if @seller.save
+    redirect '/sellers'
+  else
+    erb :'/sellers/new'
+  end
 end
 
+delete '/sellers/:id' do
+  seller = Seller.find params[:id]
+  seller.destroy
+  redirect to '/sellers'
+end
 
+post '/sellers/show' do
+ erb :'/sellers/show'
+end

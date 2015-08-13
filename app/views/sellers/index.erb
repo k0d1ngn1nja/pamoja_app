@@ -1,0 +1,13 @@
+<% @seller.each do |seller| %>
+ <a href="/sellers/<%= seller.id %>"><p><%= seller.name %></p></a>
+  <p><%= seller.location %></p> 
+  <p><%= seller.story %></p> 
+<hr />
+  <form action="/sellers/<%= seller.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete this post">
+  </form>
+<% end %>
+
+
+<a href="/sellers/new">Add a new seller</a>

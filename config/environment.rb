@@ -1,13 +1,16 @@
 require 'rubygems'
 require 'bundler/setup'
-
+require 'carrierwave'
 require 'active_support/all'
 
 # Load Sinatra Framework (with AR)
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
+<<<<<<< HEAD
 require 'carrierwave/orm/activerecord'
+=======
+>>>>>>> 9ab80f0eb2485d73aa684a37f6c1fd5ef077aa1d
 require 'pry'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -30,7 +33,15 @@ require APP_ROOT.join('config', 'database')
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
 
+<<<<<<< HEAD
 
 CarrierWave.configure do |config|
     config.root = APP_ROOT + 'public/'
 end
+=======
+CarrierWave.configure do |config|
+  config.root = APP_ROOT + 'public/'
+end
+
+
+>>>>>>> 9ab80f0eb2485d73aa684a37f6c1fd5ef077aa1d
