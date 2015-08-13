@@ -1,9 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'carrierwave'
 require 'active_support/all'
-
-# Load Sinatra Framework (with AR)
+require 'carrierwave'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
@@ -30,7 +28,7 @@ require APP_ROOT.join('config', 'database')
 require APP_ROOT.join('app', 'actions')
 
 CarrierWave.configure do |config|
-  config.root = APP_ROOT + 'public/'
+  config.root = APP_ROOT + 'public_folder/'
 end
 
 

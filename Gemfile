@@ -9,9 +9,9 @@ gem 'sinatra-contrib'
 
 gem 'sinatra-activerecord'
 gem 'carrierwave'
-gem 'carrierwave/orm/activerecord'
 gem 'pg'
-#gem 'carrierwave', :require => 'carrierwave/sequel'
+gem 'mini_magick'
+
 gem 'puma'
 gem 'tux'
 
