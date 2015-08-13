@@ -2,25 +2,25 @@
   <div class="row">
     <div class="large-12 columns">
       <label name="name">Name
-        <input type="text" placeholder="Add Name Here" name="name"/>
+        <input type="text" placeholder="Add Name Here" name="name" value="<%= @seller && @seller.name %>"/>
       </label>
     </div>
   </div>
   <div class="row">
     <div class="large-4 columns">
       <label name="location">Location
-        <input type="text" placeholder="Add Location Here" name="location"/>
+        <input type="text" placeholder="Add Location Here" name="location" value="<%= @seller && @seller.location %>"/>
       </label>
     </div>
     <div class="large-4 columns">
       <label name="blurb">Brief Intro
-        <input type="text" placeholder="Give us a breief introduction - MAX 140 characters" name="blurb"/>
+        <input type="text" placeholder="Give us a breief introduction - MAX 140 characters" name="blurb" value="<%= @seller && @seller.blurb %>"/>
       </label>
     </div>
     <div class="large-4 columns">
       <div class="row collapse">
         <label name="video">Video URL
-          <input type="url" placeholder="Your video goes here.." name="video"/>
+          <input type="url" placeholder="Your video goes here.." name="video" value="<%= @seller && @seller.video%>"/>
         </label>
       </div>
     </div>

@@ -31,6 +31,11 @@ get '/sellers' do
   erb :'/sellers/index'
 end
 
+get '/sellers/:id' do
+ @seller= Seller.find(params:[id])
+ erb :'sellers/show'
+end
+
 post '/products/new' do
   @product = Product.create(
     seller_id: params[:seller_id],
@@ -68,6 +73,6 @@ delete '/sellers/:id' do
   redirect to '/sellers'
 end
 
-#post '/sellers/show' do
-#  erb :'/sellers/show'
-#end
+post '/sellers/show' do
+ erb :'/sellers/show'
+end

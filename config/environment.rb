@@ -28,7 +28,6 @@ require APP_ROOT.join('config', 'database')
 require APP_ROOT.join('app', 'actions')
 
 CarrierWave.configure do |config|
-  config.root = APP_ROOT + 'public_folder/'
+    config.root = APP_ROOT + 'public/'
 end
-
 

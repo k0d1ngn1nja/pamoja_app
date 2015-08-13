@@ -8,10 +8,9 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 
 gem 'sinatra-activerecord'
-gem 'carrierwave'
 gem 'pg'
-gem 'mini_magick'
 
+gem 'carrierwave'
 gem 'puma'
 gem 'tux'
 
