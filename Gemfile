@@ -6,9 +6,12 @@ gem 'activesupport'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'sinatra-activerecord'
-gem 'pg'
 
+gem 'sinatra-activerecord'
+gem 'carrierwave'
+gem 'carrierwave/orm/activerecord'
+gem 'pg'
+#gem 'carrierwave', :require => 'carrierwave/sequel'
 gem 'puma'
 gem 'tux'
 

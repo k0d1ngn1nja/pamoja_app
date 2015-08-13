@@ -15,5 +15,5 @@ configure do
     filename = File.basename(model_file).gsub('.rb', '')
     autoload ActiveSupport::Inflector.camelize(filename), model_file
   end
-
+  Dir[APP_ROOT.join('app', 'uploaders', '*.rb')].each { |file| require file}
 end
