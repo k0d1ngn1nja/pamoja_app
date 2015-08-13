@@ -23,6 +23,9 @@ end
 
 get '/sellers/:id' do
   @seller = Seller.find params[:id]
+#  image = @seller.image.new()
+#  image.file = params[:image]
+#  image.save
   erb :'/sellers/show'
 end
 
@@ -32,8 +35,13 @@ get '/sellers' do
 end
 
 get '/sellers/:id' do
- @seller= Seller.find(params:[id])
+ @seller= Seller.find(params[:id])
  erb :'sellers/show'
+end
+
+get '/sellers/:id/edit' do
+  @seller = Seller.find(params[:id])
+  erb :'/sellers/edit'
 end
 
 post '/products/new' do
@@ -58,12 +66,24 @@ post '/sellers/new' do
     story: params[:story],
     blurb: params[:blurb],
     specialty: params[:specialty],
-    video: params[:video]
+    video: params[:video],
+    image: params[:image]
     )
+  binding.pry
   if @seller.save
     redirect '/sellers'
   else
     erb :'/sellers/new'
+  end
+end
+
+
+put '/sellers/:id/edit' do
+  @seller = Seller.find(params[:id])
+  if @seller.update_attributes(name: params[:name], location: params[:location])
+    redirect '/sellers'
+  else
+    erb :'sellers/edit'
   end
 end
 
