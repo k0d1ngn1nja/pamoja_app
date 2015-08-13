@@ -34,6 +34,12 @@ get '/sellers' do
   erb :'/sellers/index'
 end
 
+get '/products' do
+  @product = Product.all
+  erb :'/products/index'
+
+end
+
 get '/sellers/:id' do
  @seller= Seller.find(params[:id])
  erb :'sellers/show'
@@ -87,7 +93,6 @@ post '/sellers/new' do
     file_path: "/images/sellers/#{@seller.id}_seller#{@extension}", 
     seller_id: @seller.id
     )
-  binding.pry
   
   if @seller.save
     redirect '/sellers'

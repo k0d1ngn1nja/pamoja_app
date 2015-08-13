@@ -1,0 +1,14 @@
+<% @product.each do |product| %>
+ <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
+  <p><%= product.price %></p>
+  <p><%= product.description %></p> 
+  <p><%= product.category %></p> 
+<hr />
+  <form action="/products/<%= product.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete this post">
+  </form>
+<% end %>
+
+
+<a href="/products/new">Add a new product</a>
