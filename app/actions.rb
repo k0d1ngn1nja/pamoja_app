@@ -44,6 +44,9 @@ get '/sellers/:id/edit' do
   erb :'/sellers/edit'
 end
 
+get '/image' do
+  
+end
 post '/products/new' do
   @product = Product.create(
     seller_id: params[:seller_id],
@@ -72,12 +75,12 @@ post '/sellers/new' do
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
   
-  File.open("./public/images/sellers/#{@seller.id}_#{@filename}", 'wb') do |f|
+  File.open("./public/images/sellers/#{@seller.id}_seller.png", 'wb') do |f|
     
     f.write(file.read)
   end
 
-  @seller.update(image: "../public/images/sellers/#{@seller.id}_#{@filename}" )
+  @seller.update(image: "/images/sellers/#{@seller.id}_seller.png" )
 
   if @seller.save
     redirect '/sellers'
