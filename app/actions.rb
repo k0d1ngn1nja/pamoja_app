@@ -23,9 +23,6 @@ end
 
 get '/sellers/:id' do
   @seller = Seller.find params[:id]
-#  image = @seller.image.new()
-#  image.file = params[:image]
-#  image.save
   erb :'/sellers/show'
 end
 
