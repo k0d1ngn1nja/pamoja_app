@@ -1,0 +1,47 @@
+<% @products.take(6).each do |product| %>
+
+<div class="large-4 columns">
+<img src="http://placehold.it/1000x1000&text=Thumbnail">
+  <div class="panel">
+    <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
+    <p><%= product.location %></p> 
+    <p><%= product.story %></p>
+    <h6 class="subheader"><%= product.price %></h6>
+    <form action="/products/<%= product.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete this post">
+    </form>
+  </div>
+</div>
+
+<% end %>
+
+<a href="/products/new">Add a new product</a>
+<!-- 
+<div class="row">
+<div class="large-4 columns">
+<img src="http://placehold.it/1000x1000&text=Thumbnail">
+  <div class="panel">
+    <h5>1</h5>
+    <h6 class="subheader">$000.00</h6>
+  </div>
+</div>
+
+<div class="large-4 columns">
+<img src="http://placehold.it/500x500&text=Thumbnail">
+  <div class="panel">
+    <h5>2</h5>
+    <h6 class="subheader">$000.00</h6>
+  </div>
+</div>
+
+<div class="large-4 columns">
+<img src="http://placehold.it/500x500&text=Thumbnail">
+  <div class="panel">
+    <h5>3</h5>
+    <h6 class="subheader">$000.00</h6>
+  </div>
+</div>
+
+</div>
+ -->

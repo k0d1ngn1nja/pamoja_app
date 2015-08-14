@@ -9,6 +9,12 @@ get '/' do
   erb :index
 end
 
+get '/products' do
+  @products = Product.order(:created_at) 
+  # .take(6)
+  erb :'products/index'
+end
+
 get '/products/new' do
   erb :'/products/new'
 end
