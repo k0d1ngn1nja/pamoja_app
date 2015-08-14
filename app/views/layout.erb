@@ -5,16 +5,18 @@
   <link rel="stylesheet" href="/stylesheets/application.css">
   <link rel="stylesheet" href="/stylesheets/foundation.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+  <script src="/javascript/js/vendor/jquery.js"></script>
   <script src="/javascript/js/foundation.min.js"></script>
 
   <script src="/javascript/js/foundation/application.js"></script>
   <script src="/javascript/js/foundation/foundation.offcanvas.js"></script>
+  <script src="/javascript/js/foundation/foundation.magellan.js"></script>
 
 
   <!-- Other JS plugins can be included here -->
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
+    <div data-magellan-expedition ="fixed">
     <nav class="tab-bar">
       <div class="left-small">
         <a role="button" aria-expanded="false" aria-controls="idOfLeftMenu" class="left-off-canvas-toggle menu-icon" >
@@ -24,7 +26,8 @@
         <h1 class="title"></h1>
       </section>
     </nav>
-  
+    </div>
+
     <%= yield %>
     <!-- Off Canvas Menu -->
     <!-- <aside class="left-off-canvas-menu"> -->
