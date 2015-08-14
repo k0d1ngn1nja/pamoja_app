@@ -1,3 +1,7 @@
+<a href="/" class="button">Home</a>
+<a href="/products/new" class="button">Add a new product</a>
+<hr />
+
 <% @product.each do |product| %>
  <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
   <p><%= product.price %></p>
@@ -9,6 +13,4 @@
     <input type="submit" value="Delete this post">
   </form>
 <% end %>
-
-
-<a href="/products/new">Add a new product</a>
+w

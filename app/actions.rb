@@ -20,6 +20,7 @@ get '/sellers/new' do
 end
 
 get '/products/:id' do
+  @product = Product.find params[:id]
   erb :'/products/show'
 end
 
@@ -61,24 +62,25 @@ post '/products/new' do
     category: params[:category],
     price: params[:price],
     )    
+  if params[:file]
+    @filename = params[:file][:filename]
+    file = params[:file][:tempfile]
+    @extension= @filename.match(/(\.(?i)(jpg|png|gif|bmp|jpeg))\z/).to_s
 
-  @filename = params[:file][:filename]
-  file = params[:file][:tempfile]
-  
-  @extension= @filename.match(/(\.(?i)(jpg|png|gif|bmp|jpeg))\z/).to_s
+    File.open("./public/images/products/#{@product.id}_product#{@extension}", 'wb') do |f|
+     f.write(file.read)
+    end
 
-  File.open("./public/images/products/#{@product.id}_product#{@extension}", 'wb') do |f|
-    f.write(file.read)
-  end
+    @image = Image.create( 
+      product_id: @product.id
+     )
 
-  @image = Image.create( 
-    product_id: @product.id
-   )
-  @image.update(file_path: "/images/products/#{@product.id}_#{@image.id}_product#{@extension}")
-  if @product.save
-    redirect '/product/:id'
-  else
-    erb:'/product/new'
+    @image.update(file_path: "/images/products/#{@product.id}_#{@image.id}_product#{@extension}")
+    @product.save
+    redirect '/products/:id'
+  else 
+    @no_file_error = "You must add a photo to proceed"
+    erb:'/products/new'
   end
 end
 
@@ -91,27 +93,28 @@ post '/sellers/new' do
     specialty: params[:specialty],
     video: params[:video],
   )
-
-  @filename = params[:file][:filename]
-  file = params[:file][:tempfile]
-  
-  @extension= @filename.match(/(\.(?i)(jpg|png|gif|bmp|jpeg))\z/).to_s
-
+  if params[:file]
+    @filename = params[:file][:filename]
+    file = params[:file][:tempfile]
     
+    @extension= @filename.match(/(\.(?i)(jpg|png|gif|bmp|jpeg))\z/).to_s
 
-  File.open("./public/images/sellers/#{@seller.id}_seller#{@extension}", 'wb') do |f|
-    f.write(file.read)
-  end
+      
 
-  @image = Image.create(
-    file_path: "/images/sellers/#{@seller.id}_seller#{@extension}", 
-    seller_id: @seller.id
-    )
+    File.open("./public/images/sellers/#{@seller.id}_seller#{@extension}", 'wb') do |f|
+      f.write(file.read)
+    end
+
+    @image = Image.create(
+      file_path: "/images/sellers/#{@seller.id}_seller#{@extension}", 
+      seller_id: @seller.id
+      )
   
-  if @seller.save
+    @seller.save
     redirect '/sellers'
     session[:seller_id] = @seller.id
-  else
+  else 
+    @no_file_error = "You must add a photo to proceed"
     erb :'/sellers/new'
   end
 end
