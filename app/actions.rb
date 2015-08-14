@@ -70,12 +70,13 @@ post '/products/new' do
     end
     
     @image = Image.create( 
-      product_id: @product.id
+      product_id: @product.id,
+      file_path:"/images/products/#{@product.id}_product#{@extension}",
+      seller_id: params[:seller_id]
      )
-
-    @image.update(file_path: "/images/products/#{@product.id}_#{@image.id}_product#{@extension}")
-    @product.save
-    redirect '/products'
+    if @image.save && @product.save 
+      redirect '/products'
+    end
   else 
     @no_file_error = "You must add a photo to proceed"
     erb:'/products/new'
@@ -130,6 +131,12 @@ delete '/sellers/:id' do
   seller = Seller.find params[:id]
   seller.destroy
   redirect to '/sellers'
+end
+
+delete '/products/:id' do
+  product = Product.find params[:id]
+  product.destroy
+  redirect to '/products'
 end
 
 post '/sellers/show' do

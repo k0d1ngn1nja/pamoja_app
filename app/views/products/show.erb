@@ -1,3 +1,23 @@
-<% @products.each do |product|  %>
-<p><%= product.seller_id %></p>
-<% end %>
+<div class="panel">
+  <p><%= @product.name %></p>
+  <p><%= @product.price %></p>
+  <p><%= @product.description %></p>
+  
+  <div>
+    <% @product.images.each do |image| %>
+    <img src="<%= image.file_path%>">
+    <% end %>
+  </div>
+
+</div>
+
+
+
+</div>
+ <form action="/products/<%= @product.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <ul class="right">
+      <input type="submit" value="Delete this post" class="button">
+      </ul>
+</form>
+<a href="/products" class="button">Product List</a>
