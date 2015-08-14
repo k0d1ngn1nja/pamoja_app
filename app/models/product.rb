@@ -3,4 +3,5 @@ class Product < ActiveRecord::Base
   belongs_to :seller
   belongs_to :buyer
   has_many :images
+  validates :price, numericality:{only_integer: true}
 end

@@ -4,8 +4,8 @@
 <img src="http://placehold.it/1000x1000&text=Thumbnail">
   <div class="panel">
     <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
-    <p><%= product.location %></p> 
-    <p><%= product.story %></p>
+    <p><%= product.price %></p>
+    <p><%= product.description %></p> 
     <h6 class="subheader"><%= product.price %></h6>
     <form action="/products/<%= product.id %>" method="POST">
       <input type="hidden" name="_method" value="DELETE">

@@ -1,7 +1,22 @@
 <form id="new_sellers" method="post" action="/sellers/new" enctype="multipart/form-data">
-  <div class="row">
-    <small class="error"><%= @no_file_error %></small>
-  </div>
+
+  <% if @no_file_error%>
+    <div class="row">
+      <small class="error">
+        <%= @no_file_error %>
+      </small>
+    </div>
+  <% end %>
+  <% if @seller && @seller.errors.any? %>    
+    <% @seller.errors.full_messages.each do |message|%>
+      <div class="row">
+        <small class="error">
+          <%= message%>
+        </small>
+      </div>
+      <% end %>
+  <% end %>
+
 
   <div class="row">
     <div class="small-12 columns">

@@ -58,3 +58,8 @@ div#slider2 figure {
   font-size: 0;
   animation: 20s slidy infinite; 
 }
+
+.product_errors {
+  text-align: center;
+  font-size: 20;
+}

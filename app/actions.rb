@@ -1,12 +1,3 @@
-# Homepage (Root path)
-helpers do
-  def current_user 
-    unless session[:seller_id].nil?
-      Seller.find(session[:seller_id])
-    end
-  end
-end
-
 get '/' do
   erb :index
 end
@@ -48,6 +39,7 @@ end
 
 get '/sellers/:id' do
  @seller= Seller.find(params[:id])
+ @images= Image.all
  erb :'sellers/show'
 end
 
@@ -59,15 +51,15 @@ end
 get '/image' do
   
 end
+
 post '/products/new' do
   @product = Product.create(
-    seller_id: params[:seller_id],
-    buyer_id: params[:buyer_id],
     name: params[:name],
     description: params[:description],
     category: params[:category],
-    price: params[:price],
+    price: params[:price].to_i,
     )    
+
   if params[:file]
     @filename = params[:file][:filename]
     file = params[:file][:tempfile]
@@ -76,14 +68,14 @@ post '/products/new' do
     File.open("./public/images/products/#{@product.id}_product#{@extension}", 'wb') do |f|
      f.write(file.read)
     end
-
+    
     @image = Image.create( 
       product_id: @product.id
      )
 
     @image.update(file_path: "/images/products/#{@product.id}_#{@image.id}_product#{@extension}")
     @product.save
-    redirect '/products/:id'
+    redirect '/products'
   else 
     @no_file_error = "You must add a photo to proceed"
     erb:'/products/new'
@@ -118,7 +110,6 @@ post '/sellers/new' do
   
     @seller.save
     redirect '/sellers'
-    session[:seller_id] = @seller.id
   else 
     @no_file_error = "You must add a photo to proceed"
     erb :'/sellers/new'

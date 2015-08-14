@@ -8,6 +8,9 @@
 </form>
 
 <a href="/sellers/<%= @seller.id %>/edit">Edit</a>
-<img src="<%=Image.find_by(@seller.id).file_path%>">
+
+<% @seller.images.each do |image| %>
+  <img src="<%=image.file_path%>">
+<%end%>
 
 

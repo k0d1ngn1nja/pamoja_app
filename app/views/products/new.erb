@@ -1,4 +1,22 @@
 <form id="new_products" method="post" action="/products/new" enctype="multipart/form-data">
+  
+  <% if @no_file_error%>
+    <div class="row">
+      <small class="error">
+        <%= @no_file_error %>
+      </small>
+    </div>
+  <% end %>
+  <% if @product && @product.errors.any? %>    
+    <% @product.errors.full_messages.each do |message|%>
+      <div class="row">
+        <small class="error">
+          <%= message%>
+        </small>
+      </div>
+      <% end %>
+  <% end %>
+
   <div class="row">
     <div class="small-6 columns">
       <label name="name">Name
@@ -7,7 +25,7 @@
     </div>
     <div class="small-6 columns">
       <label name="price">Price
-        <input type="number" placeholder="Add Product Price Here" name="name" value="<%= @product && @product.name %>"/>
+        <input type="text" placeholder="Add Product Price Here" name="price" value="<%= @product && @product.name %>"/>
       </label>
     </div>
   </div>
@@ -21,7 +39,7 @@
   <div class="row">
     <div class="small-3 columns small-centered columns">
       <label name="file">Image
-        <input type="file" name="file" />
+        <input type="file" name="file"/>
       </label>
     </div>
   </div>
