@@ -1,6 +1,7 @@
 
 <div class="row">
 <% @products.each do |product| %>
+  <a href="products/<%= product.id %>">
   <div class="small-4 columns">
     <div class="image-wrapper overlay-fade-in">
       <% product.images.each do |image| %>      
@@ -9,11 +10,10 @@
       <div class="image-overlay-content">
         <h2><%= product.name %></h2>
         <p class="price"><%= product.price %></p>
-        <a href="products/<%= product.id %>" class="button">Get it</a>
-      </div>
-    
-    </div>
+       </div>
+     </div>
   </div>
+  </a>
 <% end %>
 </div>
 

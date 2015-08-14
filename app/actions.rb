@@ -62,7 +62,7 @@ post '/products/new' do
     price: params[:price].to_i,
     seller_id: params[:seller_id].to_i
     )    
-byebug
+
   if params[:file] && @product.persisted?
     @filename = params[:file][:filename]
     file = params[:file][:tempfile]
