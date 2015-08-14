@@ -3,6 +3,7 @@ class AddTables < ActiveRecord::Migration
     create_table :sellers do |t|
       t.string :video
       t.string :name
+      t.string :image
       t.string :location
       t.text :story
       t.string :blurb
@@ -31,7 +32,6 @@ class AddTables < ActiveRecord::Migration
 
     create_table :images do |t|
       t.references :product
-      t.references :seller
       t.string :file_path
       t.timestamps null:true
     end

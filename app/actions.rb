@@ -71,8 +71,7 @@ post '/products/new' do
     
     @image = Image.create( 
       product_id: @product.id,
-      file_path:"/images/products/#{@product.id}_product#{@extension}",
-      seller_id: params[:seller_id]
+      file_path:"/images/products/#{@product.id}_product#{@extension}"
      )
     if @image.save && @product.save 
       redirect '/products'
@@ -102,11 +101,7 @@ post '/sellers/new' do
       f.write(file.read)
     end
 
-    @image = Image.create(
-      file_path: "/images/sellers/#{@seller.id}_seller#{@extension}", 
-      seller_id: @seller.id
-      )
-  
+    @seller.update(image: "/images/sellers/#{@seller.id}_seller#{@extension}")
     @seller.save
     redirect '/sellers'
   else 
