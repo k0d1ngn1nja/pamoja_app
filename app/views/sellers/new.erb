@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="smalld-4 columns">
+    <div class="small-12 columns">
       <label name="file">Image
         <input type="file" name="file" />
       </label>
@@ -27,11 +27,9 @@
       </label>
     </div>
     <div class="small-6 columns">
-      <div class="row">
-        <label name="video">Video URL
-          <input type="url" placeholder="Your video goes here.." name="video" value="<%= @seller && @seller.video%>"/>
-        </label>
-      </div>
+      <label name="video">Video URL
+        <input type="url" placeholder="Your video goes here.." name="video" value="<%= @seller && @seller.video%>"/>
+      </label>
     </div>
   </div>
   <div class="row">
@@ -50,7 +48,7 @@
   <div class="row">
     <div class="small-12 columns">
       <label name="story">Story
-        <textarea placeholder="small-12.columns" name="story"></textarea>
+        <textarea placeholder="Your story goes here" name="story"></textarea>
       </label>
     </div>
     <div class="row">
