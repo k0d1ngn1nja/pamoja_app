@@ -1,14 +1,15 @@
-<% @products.take(6).each do |product| %>
+<% @products.each do |product| %>
 
-<div class="small-4 columns">
-
+<div class="medium-4 columns">
+<div class="product-img">
 <% product.images.each do |image| %>
 <img src="<%= image.file_path%>">
 <% end %>
+</div>
   <div class="panel">
     <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
     <p><%= product.price %></p>
   </div>
 </div>
-
 <% end %>
+<a href="/products/new" class="button expand radius">ADD NEW PRODUCT</a>
