@@ -4671,6 +4671,7 @@ blockquote p {
   -webkit-backface-visibility: hidden;
   background: white;
   color: #418B2A;
+  box-shadow: 0 0 1px #BCEAAC;
   height: 2.8125rem;
   line-height: 2.8125rem;
   position: relative; }
@@ -4687,7 +4688,7 @@ blockquote p {
   position: absolute;
   top: 0;
   width: 2.8125rem;
-  border-right: solid 1px #1a1a1a;
+  border-right: solid 1px #BCEAAC;
   left: 0; }
 
 .right-small {
@@ -4795,7 +4796,7 @@ ul.off-canvas-list {
   ul.off-canvas-list li label {
     background: white;
     border-bottom: none;
-    border-top: 1px solid #5e5e5e;
+    border-top: 1px solid white;
     color: #418B2A;
     display: block;
     font-size: 0.75rem;
@@ -4804,15 +4805,17 @@ ul.off-canvas-list {
     padding: 0.3rem 0.9375rem;
     text-transform: uppercase; }
   ul.off-canvas-list li a {
-    border-bottom: 1px solid #262626;
-    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid white;
+    color: #418B2A;
     display: block;
     padding: 0.66667rem;
     transition: background 300ms ease; }
     ul.off-canvas-list li a:hover {
-      background: #242424; }
+      background: #418B2A; 
+      color: white;}
     ul.off-canvas-list li a:active {
-      background: #242424; }
+      background: #418B2A; 
+      color: white;}
 
 .move-right > .inner-wrap {
   -webkit-transform: translate3d(15.625rem, 0, 0);
@@ -4873,7 +4876,7 @@ ul.off-canvas-list {
   z-index: 1003; }
 .offcanvas-overlap .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
