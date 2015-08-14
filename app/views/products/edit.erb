@@ -1,0 +1,65 @@
+<form id="new_products" method="post" action="/products/new" enctype="multipart/form-data">
+  
+  <% if @no_file_error%>
+    <div class="row">
+      <small class="error">
+        <%= @no_file_error %>
+      </small>
+    </div>
+  <% end %>
+  <% if @product && @product.errors.any? %>    
+    <% @product.errors.full_messages.each do |message|%>
+      <div class="row">
+        <small class="error">
+          <%= message%>
+        </small>
+      </div>
+      <% end %>
+  <% end %>
+
+  <div class="row">
+    <div class="small-6 columns">
+      <label name="name">Name
+        <input type="text" placeholder="Add Product Name Here" name="name" value="<%= @product && @product.name %>"/>
+      </label>
+    </div>
+    <div class="small-6 columns">
+      <label name="price">Price
+        <input type="text" placeholder="Add Product Price Here" name="price" value="<%= @product && @product.name %>"/>
+      </label>
+    </div>
+  </div>
+   <div class="row">
+    <div class="small-12 columns">
+      <label name="description">Description
+        <textarea placeholder="Add a brief product description" name="description"></textarea>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-3 columns small-centered columns">
+      <label name="file">Image
+        <input type="file" name="file"/>
+      </label>
+    </div>
+  </div>
+  <div class="row"> 
+    <div class="small-12 columns">
+      <label name="category">Category
+        <select name="category">
+          <option value="Jewellery" selected="selected">Jewellery</option>
+          <option value="Sculpture">Sculpture</option>
+          <option value="Clothing and Accessories">Clothing and Accessories</option>
+          <option value="Paintings/ Batik">Paintings/ Batik</option>
+          <option value="Woven Products">Woven Products</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+    </div>
+  </div>    
+    <div class="row">
+      <div class="small-6 small-offset-5"><button class="button success" id="sellers_submit" type="submit">Submit</button>
+      </div>
+    </div>
+
+</form>

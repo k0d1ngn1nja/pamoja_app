@@ -1754,7 +1754,7 @@ meta.foundation-mq-topbar {
         position: relative;
         top: -1px; } }
   .top-bar .title-area {
-    margin: 0;
+    margin-top: 20%;
     position: relative; }
   .top-bar .name {
     font-size: 16px;
@@ -2015,7 +2015,7 @@ meta.foundation-mq-topbar {
           font-weight: normal; }
       .top-bar-section .dropdown li.title h5, .top-bar-section .dropdown li.parent-link {
         margin-bottom: 0;
-        margin-top: 0;
+        margin-top: 20%;
         font-size: 1.125rem; }
         .top-bar-section .dropdown li.title h5 a, .top-bar-section .dropdown li.parent-link a {
           color: #FFFFFF;
@@ -4672,7 +4672,7 @@ blockquote p {
   background: white;
   color: #418B2A;
   box-shadow: 0 0 1px #BCEAAC;
-  height: 2.8125rem;
+  height: 4rem;
   line-height: 2.8125rem;
   position: relative; }
   .tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4, .tab-bar h5, .tab-bar h6 {
@@ -4684,10 +4684,11 @@ blockquote p {
     font-size: 1.125rem; }
 
 .left-small {
-  height: 2.8125rem;
+  height: 4rem;
   position: absolute;
+  background-color: #418B2A;
   top: 0;
-  width: 2.8125rem;
+  width: 4rem;
   border-right: solid 1px #BCEAAC;
   left: 0; }
 
@@ -4722,10 +4723,10 @@ blockquote p {
 .tab-bar .menu-icon {
   color: #FFFFFF;
   display: block;
-  height: 2.8125rem;
-  padding: 0;
+  height: 2rem;
+  padding-top: 0.5rem;
   position: relative;
-  text-indent: 2.1875rem;
+  text-indent: 0.5rem;
   transform: translate3d(0, 0, 0);
   width: 2.8125rem; }
   .tab-bar .menu-icon span::after {
@@ -4826,7 +4827,7 @@ ul.off-canvas-list {
   transform: translate3d(15.625rem, 0, 0); }
 .move-right .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow:0 0 0 1px #BCEAAC;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;

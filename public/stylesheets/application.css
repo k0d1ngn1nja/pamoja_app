@@ -27,8 +27,18 @@
 }
 
 .slider {
-  max-height: 600px;
+  max-height: 400px;
   max-width: 400px;
+}
+
+.slider {
+  margin-left: 30%;
+}
+
+#slider {
+  max-width: 400px;
+  max-height: 400px;
+  margin-top: 8%;
 }
 
 body { margin: 0; } 
@@ -50,9 +60,8 @@ div#slider figure {
 }
 
 
-
 #banner {
-  position: absolute;
+  position: ;
   top: 500px;
   left: 0px;
   right: 0px;
@@ -65,7 +74,7 @@ div#slider figure {
 #banner img {
   max-height: 120%;
   max-width: 120%;
-  margin:-1% 0 0 35%;
+  margin:-1% 0 0 30%;
   text-align: center;
 }
 

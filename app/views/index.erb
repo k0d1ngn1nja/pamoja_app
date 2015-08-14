@@ -2,7 +2,7 @@
   <div class ="slider">
   <div id="slider">
    <figure>
-    <% @products.each do |product| %>
+    <% @products.take(5).each do |product| %>
       <% product.images.each do |image| %>
         <img src="<%= image.file_path %>">
       <% end %>
