@@ -1,7 +1,3 @@
-<a href="/" class="button">Home</a>
-<a href="/sellers/new" class="button">Add a new seller</a>
-<hr />
-
 <% @seller.each do |seller| %>
 <div id="seller_index">
   <div id="seller_index_image"> 
@@ -14,7 +10,7 @@
       <p><%= seller.story %></p> 
       <form action="/sellers/<%= seller.id %>" method="POST">
         <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete this post">
+        <input type="submit" class="button" value="Delete this post">
       </form>
   </div>
 </div>

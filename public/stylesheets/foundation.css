@@ -4669,13 +4669,13 @@ blockquote p {
 
 .tab-bar {
   -webkit-backface-visibility: hidden;
-  background: #333333;
-  color: #FFFFFF;
+  background: white;
+  color: #418B2A;
   height: 2.8125rem;
   line-height: 2.8125rem;
   position: relative; }
   .tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4, .tab-bar h5, .tab-bar h6 {
-    color: #FFFFFF;
+    color: #418B2A;
     font-weight: bold;
     line-height: 2.8125rem;
     margin: 0; }
@@ -4742,7 +4742,7 @@ blockquote p {
 
 .left-off-canvas-menu {
   -webkit-backface-visibility: hidden;
-  background: #333333;
+  background: white;
   bottom: 0;
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch;
@@ -4793,10 +4793,10 @@ ul.off-canvas-list {
   margin: 0;
   padding: 0; }
   ul.off-canvas-list li label {
-    background: #444444;
+    background: white;
     border-bottom: none;
     border-top: 1px solid #5e5e5e;
-    color: #999999;
+    color: #418B2A;
     display: block;
     font-size: 0.75rem;
     font-weight: bold;

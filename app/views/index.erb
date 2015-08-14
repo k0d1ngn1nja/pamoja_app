@@ -1,26 +1,14 @@
-<h1>Look at this freakin' Home Page</h1>
-<a href="/sellers" class="button">Sellers List</a>
-<a href="/products" class="button">Products List</a>
-
-<div id="index-banner">
+<br>
+<div class="row">
+  <div class ="medium-12 slider">
   <div id="slider">
    <figure>
-      <img src="http://demosthenes.info/assets/images/austin-fireworks.jpg" alt="">
-      <img src="http://demosthenes.info/assets/images/taj-mahal.jpg" alt="">
-      <img src="http://demosthenes.info/assets/images/ibiza.jpg" alt="">
-      <img src="http://demosthenes.info/assets/images/ankor-wat.jpg" alt="">
-      <img src="http://demosthenes.info/assets/images/austin-fireworks.jpg" alt="">
+    <% @products.each do |product| %>
+      <% product.images.each do |image| %>
+        <img src="<%= image.file_path %>">
+      <% end %>
+    <% end %>
    </figure>
   </div>
-
-  <div id="slider2">
-   <figure>
-    <img src="http://demosthenes.info/assets/images/austin-fireworks.jpg" alt="">
-    <img src="http://demosthenes.info/assets/images/taj-mahal.jpg" alt="">
-    <img src="http://demosthenes.info/assets/images/ibiza.jpg" alt="">
-    <img src="http://demosthenes.info/assets/images/ankor-wat.jpg" alt="">      
-    <img src="http://demosthenes.info/assets/images/austin-fireworks.jpg" alt="">
-   </figure>
   </div>
-
 </div>
