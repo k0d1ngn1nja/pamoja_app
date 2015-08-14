@@ -4,12 +4,12 @@
   <link rel="stylesheet" href="/stylesheets/application.css">
   <link rel="stylesheet" href="/stylesheets/foundation.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/javascript/application.js"></script>
+  <script src="/javascript/js/foundation.min.js"></script>
 
   <title></title>
 </head>
 <body>
-  <%= yield %>
+
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
     <nav class="tab-bar">
@@ -20,9 +20,10 @@
         <h1 class="title">Pamoja</h1>
       </section>
     </nav>
-
+  
+    <%= yield %>
     <!-- Off Canvas Menu -->
-    <aside class="left-off-canvas-menu">
+    <!-- <aside class="left-off-canvas-menu"> -->
         <!-- whatever you want goes here -->
         <nav class="left-off-canvas-menu">
           <ul class="off-canvas-list">
@@ -34,12 +35,13 @@
           <li><a href="#">The Merchant Princes</a></li>
         </ul>
       </nav>
-    </aside>
+ <!--    </aside> -->
 
   <a class="exit-off-canvas"></a>
   </div>
 </div>
-
-
+<script>
+  $(document).foundation();
+</script>
 </body>
 </html>
