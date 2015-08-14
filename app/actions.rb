@@ -54,6 +54,7 @@ get '/image' do
 end
 
 post '/products/new' do
+  @sellers = Seller.all
   @product = Product.create(
     name: params[:name],
     description: params[:description],
