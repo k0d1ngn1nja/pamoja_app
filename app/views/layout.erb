@@ -11,5 +11,36 @@
 </head>
 <body>
   <%= yield %>
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <div class="left-small">
+        <a role="button" aria-expanded="false" aria-controls="idOfLeftMenu" class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </div>
+      <section class="middle tab-bar-section">
+        <h1 class="title">Pamoja</h1>
+      </section>
+    </nav>
+
+    <!-- Off Canvas Menu -->
+    <aside class="left-off-canvas-menu">
+        <!-- whatever you want goes here -->
+        <nav class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+          <li><label>Foundation</label></li>
+          <li><a href="#">The Psychohistorians</a></li>
+          <li><a href="#">The Encyclopedists</a></li>
+          <li><a href="#">The Mayors</a></li>
+          <li><a href="#">The Traders</a></li>
+          <li><a href="#">The Merchant Princes</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+  <a class="exit-off-canvas"></a>
+  </div>
+</div>
+
+
 </body>
 </html>

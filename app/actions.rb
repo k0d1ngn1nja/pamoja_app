@@ -60,7 +60,7 @@ post '/products/new' do
     price: params[:price].to_i,
     )    
 
-  if params[:file]
+  if params[:file] && @product.persisted?
     @filename = params[:file][:filename]
     file = params[:file][:tempfile]
     @extension= @filename.match(/(\.(?i)(jpg|png|gif|bmp|jpeg))\z/).to_s
@@ -92,13 +92,11 @@ post '/sellers/new' do
     specialty: params[:specialty],
     video: params[:video],
   )
-  if params[:file]
+  if params[:file] && @seller.persisted?
     @filename = params[:file][:filename]
     file = params[:file][:tempfile]
     
     @extension= @filename.match(/(\.(?i)(jpg|png|gif|bmp|jpeg))\z/).to_s
-
-      
 
     File.open("./public/images/sellers/#{@seller.id}_seller#{@extension}", 'wb') do |f|
       f.write(file.read)
