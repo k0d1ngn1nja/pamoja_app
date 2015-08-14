@@ -15,7 +15,7 @@ gem 'puma'
 gem 'tux'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry'
   gem 'shotgun'
   gem 'sqlite3'
 end
