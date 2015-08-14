@@ -18,6 +18,14 @@
   100% { left: -400%; }
 }
 
+#seller_index {
+  text-align: center;
+}
+
+#seller_index_image {
+  float: left;
+}
+
 #index-banner{
   width: 900px;
   height: 500px;

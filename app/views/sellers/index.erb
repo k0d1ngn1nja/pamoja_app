@@ -3,12 +3,20 @@
 <hr />
 
 <% @seller.each do |seller| %>
- <a href="/sellers/<%= seller.id %>"><p><%= seller.name %></p></a>
-  <p><%= seller.location %></p> 
-  <p><%= seller.story %></p> 
+<div id="seller_index">
+  <div id="seller_index_image"> 
+    <img src="<%= seller.image %>">
+  </div>
+
+  <div id="seller_index_text">
+     <a href="/sellers/<%= seller.id %>"><p><%= seller.name %></p></a>
+      <p><%= seller.location %></p> 
+      <p><%= seller.story %></p> 
+      <form action="/sellers/<%= seller.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete this post">
+      </form>
+  </div>
+</div>
 <hr />
-  <form action="/sellers/<%= seller.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete this post">
-  </form>
 <% end %>
