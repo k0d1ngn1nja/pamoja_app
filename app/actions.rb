@@ -10,6 +10,7 @@ get '/products' do
 end
 
 get '/products/new' do
+  @sellers = Seller.all
   erb :'/products/new'
 end
 
@@ -59,8 +60,9 @@ post '/products/new' do
     description: params[:description],
     category: params[:category],
     price: params[:price].to_i,
+    seller_id: params[:seller_id].to_i
     )    
-
+byebug
   if params[:file] && @product.persisted?
     @filename = params[:file][:filename]
     file = params[:file][:tempfile]
