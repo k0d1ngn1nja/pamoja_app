@@ -1,13 +1,15 @@
+<form action="/sellers/<%= @seller.id %>" method="POST">
+   <input type="hidden" name="_method" value="DELETE">
+   <input type="submit" class="button" value="Delete this post">
+</form>
+
+<a href="/sellers/<%= @seller.id %>/edit" class="button">Edit</a>
+<a href="/sellers/<%= @seller.id %>/edit" class="button">Home</a>
+
+
 <p><%= @seller.name %></p>
 <p><%= @seller.location %></p>
 <p><%= @seller.blurb %></p>
-
-<form action="/sellers/<%= @seller.id %>" method="POST">
-   <input type="hidden" name="_method" value="DELETE">
-   <input type="submit" value="Delete this post">
-</form>
-
-<a href="/sellers/<%= @seller.id %>/edit">Edit</a>
 
 <% @seller.images.each do |image| %>
   <img src="<%=image.file_path%>">

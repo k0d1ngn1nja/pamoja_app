@@ -22,6 +22,7 @@ task 'db:create_migration' do
     exit
   end
 
+
   name    = ENV["NAME"]
   version = ENV["VERSION"] || Time.now.utc.strftime("%Y%m%d%H%M%S")
 
