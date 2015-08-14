@@ -1,5 +1,9 @@
 <form id="new_sellers" method="post" action="/sellers/new" enctype="multipart/form-data">
   <div class="row">
+    <small class="error"><%= @no_file_error %></small>
+  </div>
+
+  <div class="row">
     <div class="small-12 columns">
       <label name="name">Name
         <input type="text" placeholder="Add Name Here" name="name" value="<%= @seller && @seller.name %>"/>
