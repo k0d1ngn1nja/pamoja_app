@@ -1,0 +1,19 @@
+<a href="/sellers/<%= seller.id %>">
+  <div class="medium-4 columns">
+    <div class="profile-card">
+      <img src="<%= seller.image %>">
+      <div class="profile-info">
+        <h4 class="subheader">A little about me..</h4>
+        <p>
+          <%= seller.blurb %>
+        </p>
+        <p>
+          <small>Created: <%= seller.created_at %> </small>
+        </p> 
+        <p>
+          <small>Updated: <%= seller.updated_at %></small>
+        </p> 
+      </div>
+    </div>
+  </div>
+</a>

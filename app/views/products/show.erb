@@ -12,12 +12,10 @@
 </div>
 
 
-
-</div>
- <form action="/products/<%= @product.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <ul class="right">
-      <input type="submit" value="Delete this post" class="button">
-      </ul>
+<form action="/products/<%= @product.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <ul class="right">
+    <input type="submit" value="Delete this post" class="button">
+  </ul>
 </form>
 

@@ -9,7 +9,8 @@ get '/products' do
   erb :'products/index'
 end
 
-get '/sellers/profile' do
+get '/sellers/profile/:id' do
+  @seller = Seller.find(params[:id])
   erb :'/sellers/seller-profile'
 end
 
