@@ -1,3 +1,11 @@
+helpers do
+  def current_buyer
+    unless session[:admin] == true
+      @buyer = Buyer.first
+    end
+  end
+end
+
 get '/' do
   @products = Product.order(:created_at)
   erb :index
@@ -10,12 +18,20 @@ get '/products' do
 end
 
 get '/products/new' do
-  @sellers = Seller.all
-  erb :'/products/new'
+  if current_buyer
+    redirect "/"
+  else
+    @sellers = Seller.all
+    erb :'/products/new'
+  end
 end
 
 get '/sellers/new' do
-  erb :'/sellers/new'
+  if current_buyer
+    redirect "/"
+  else
+    erb :'/sellers/new'
+  end
 end
 
 get '/products/:id' do
@@ -139,11 +155,6 @@ post '/sellers/show' do
  erb :'/sellers/show'
 end
 
-
-post '/admin/login' do
-  session[:admin] = true
-end
-
 get '/cart/add/:productId' do
 
 end
@@ -160,6 +171,20 @@ post '/cart/checkout' do
 
 end
 
-post '/buyer/login' do
-  session[:buyer_id] = 1
+get '/admin/login' do
+  session[:admin] = true
+end
+
+post '/admin/login' do
+  session[:admin] = true
+  redirect '/sellers'
+end
+
+get '/admin/logout' do
+  session[:admin] = false
+end
+
+post '/admin/logout' do
+  session[:admin] = false
+  redirect '/'
 end
