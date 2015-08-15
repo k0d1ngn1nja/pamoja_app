@@ -1,18 +1,27 @@
+<div class="row">
 <% @seller.each do |seller| %>
-<div id="seller_index">
-  <div id="seller_index_image"> 
-    <img src="<%= seller.image %>">
-  </div>
+  <a  href="/sellers/<%= seller.id %>">
+    <div class="medium-4 columns">
+      <div class="profile-card">
+        <img src="<%= seller.image %>">
+        <div class="profile-info">
+          <h4 class="subheader">A little about me..</h4>
+          <p>
+            <%= seller.blurb %>
+          </p>
+          <p>
+            <small>Created: <%= seller.created_at %> </small>
+          </p> 
+          <p>
+            <small>Updated: <%= seller.updated_at %></small>
+          </p> 
+        </div>
+      </div>
+    </div>
+  </a>
+<% end %> 
+<div class="row">
 
-  <div id="seller_index_text">
-     <a href="/sellers/<%= seller.id %>"><p><%= seller.name %></p></a>
-      <p><%= seller.location %></p> 
-      <p><%= seller.story %></p> 
-      <form action="/sellers/<%= seller.id %>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" class="button" value="Delete this post">
-      </form>
-  </div>
-</div>
-<hr />
-<% end %>
+
+
+  

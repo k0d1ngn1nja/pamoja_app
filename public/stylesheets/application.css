@@ -18,14 +18,6 @@
   100% { left: -400%; }
 }
 
-#seller_index {
-  text-align: center;
-}
-
-#seller_index_image {
-  float: left;
-}
-
 .slider {
   max-height: 400px;
   max-width: 400px;
@@ -59,10 +51,6 @@ div#slider figure {
   font-size: 20;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> edc3c2cabfce809cdc86f42426d2e6387d05f8a2
 #banner {
   position: ;
   top: 500px;
@@ -87,6 +75,64 @@ div#slider figure {
   border-radius: 5px;
   vertical-align: top;
 }
+
+.profile-card {
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin: 2rem 0;
+  background-color: #fff; }
+.profile-card img {
+  width: 8rem;
+  height: 8rem;
+  display: block;
+  margin: 2rem auto;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px #888888; }
+.profile-card .profile-info {
+  padding: 1rem; }
+.profile-card .profile-info h4 {
+  margin-top: 0;
+  text-align: center;
+  text-transform: uppercase; }
+.profile-card .profile-info p {
+  text-align: center; }
+.profile-card .profile-info .inline-list {
+  text-align: center;
+  margin-bottom: 1rem; }
+.profile-card .profile-info .inline-list li {
+  float: none;
+  display: inline-block; }
+.profile-card .profile-info .inline-list i.fi-social-facebook {
+  font-size: 1.5rem;
+  color: #3b5998; }
+.profile-card .profile-info .inline-list i.fi-social-facebook:hover {
+  transform: scale(1.5);
+  transition: all .5s ease-in-out; }
+.profile-card .profile-info .inline-list i.fi-social-twitter {
+  font-size: 1.5rem;
+  color: #55acee; }
+.profile-card .profile-info .inline-list i.fi-social-twitter:hover {
+  transform: scale(1.5);
+  transition: all .5s ease-in-out; }
+.profile-card .profile-info .inline-list i.fi-social-linkedin {
+  font-size: 1.5rem;
+  color: #0077b5; }
+.profile-card .profile-info .inline-list i.fi-social-linkedin:hover {
+  transform: scale(1.5);
+  transition: all .5s ease-in-out; }
+.profile-card .profile-info .inline-list i.fi-social-github {
+font-size: 1.5rem;
+color: #333; }
+.profile-card .profile-info .inline-list i.fi-social-github:hover {
+  transform: scale(1.5);
+  transition: all .5s ease-in-out; }
+.profile-card .profile-info .inline-list i.fi-social-youtube {
+font-size: 1.5rem;
+color: #cc181e; }
+.profile-card .profile-info .inline-list i.fi-social-youtube:hover {
+  transform: scale(1.5);
+  transition: all .5s ease-in-out; }
 
 .image-wrapper {
   width: 100%;
