@@ -1,15 +1,19 @@
-<% @products.each do |product| %>
 
-<div class="medium-4 columns">
-<div class="product-img">
-<% product.images.each do |image| %>
-<img src="<%= image.file_path%>">
-<% end %>
-</div>
-  <div class="panel">
-    <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
-    <p><%= product.price %></p>
+<div class="row">
+<% @products.each do |product| %>
+  <div class="small-4 columns">
+    <div class="image-wrapper overlay-fade-in">
+      <% product.images.each do |image| %>      
+      <img src="<%= image.file_path%>" />
+      <% end %>
+      <div class="image-overlay-content">
+        <h2><%= product.name %></h2>
+        <p class="price"><%= product.price %></p>
+        <a href="products/<%= product.id %>" class="button">Get it</a>
+      </div>
+    
+    </div>
   </div>
-</div>
 <% end %>
-<a href="/products/new" class="button expand radius">ADD NEW PRODUCT</a>
+</div>
+
