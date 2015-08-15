@@ -4,6 +4,13 @@ helpers do
       @buyer = Buyer.first
     end
   end
+
+  def current_cart
+    binding.pry
+    if current_buyer
+      @cart = Cart.create(buyer_id: @buyer.id)
+    end
+  end
 end
 
 get '/' do
@@ -155,7 +162,12 @@ post '/sellers/show' do
  erb :'/sellers/show'
 end
 
-get '/cart/add/:productId' do
+
+get '/cart/add/:item_id' do
+
+end
+
+post '/cart/add/:item_id' do
 
 end
 
@@ -171,6 +183,25 @@ post '/cart/checkout' do
 
 end
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#these are forced sessions!
 get '/admin/login' do
   session[:admin] = true
 end
