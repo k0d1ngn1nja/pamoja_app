@@ -52,21 +52,18 @@ div#slider figure {
 }
 
 #banner {
-  position: ;
-  top: 500px;
+  bottom: 500px;
   left: 0px;
   right: 0px;
   width: 100%;
-  height: 150px;
+  height: 11vw;
   z-index: -1;
-  background-color: #418b2a;
-  }
+  background: #418b2a;
+  text-align: center;
+}
 
 #banner img {
-  max-height: 120%;
-  max-width: 120%;
-  margin:-1% 0 0 30%;
-  text-align: center;
+  width: 40vw;
 }
 
 .product-img img{
