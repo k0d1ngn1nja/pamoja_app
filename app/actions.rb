@@ -9,6 +9,11 @@ get '/products' do
   erb :'products/index'
 end
 
+get '/sellers/profile' do
+  erb :'/sellers/seller-profile'
+end
+
+
 get '/products/new' do
   @sellers = Seller.all
   erb :'/products/new'
