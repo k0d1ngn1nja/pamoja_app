@@ -37,12 +37,12 @@ class AddTables < ActiveRecord::Migration
 
     create_table :items do |t|
       t.references :product
+      t.references :cart
       t.integer :quantity
       t.timestamps null:true
     end
 
     create_table :carts do |t|
-      t.references :item
       t.references :buyer
       t.timestamps null:true
     end

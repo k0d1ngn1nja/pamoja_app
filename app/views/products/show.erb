@@ -21,3 +21,9 @@
       </ul>
 </form>
 
+<form action="/cart/item/add" method="POST">  
+      <input type="hidden" name="product_id" value="<%= @product.id %>">
+      <ul class="right">
+      <input type="submit" value="Add to cart" class="button">
+      </ul>
+</form>

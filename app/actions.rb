@@ -1,16 +1,19 @@
 helpers do
   def current_buyer
-    unless session[:admin] == true
+    if session[:admin] == false && Buyer.first
       @buyer = Buyer.first
     end
   end
 
-  def current_cart
-    unless session[:admin] == true
-      @cart = Cart.create(buyer_id: current_buyer.id)
+  def create_cart
+    if current_buyer 
+      @cart = Cart.create(buyer_id: current_buyer.id) 
     end
   end
 
+  def current_cart
+    Cart.first
+  end 
 end
 
 get '/' do
@@ -167,6 +170,12 @@ post '/sellers/show' do
  erb :'/sellers/show'
 end
 
+get '/cart' do
+  @cart = current_cart
+  erb :'/cart/index'
+end
+
+
 
 get '/cart/add/:item_id' do
 
@@ -180,12 +189,18 @@ post '/cart/:id/item/:itemId/qunaity/:qty' do
 
 end
 
+post '/cart/item/add' do
+  @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
+  redirect to 'products/:id'
+  erb :'/products/show'
+end
+
 delete '/cart/:id/item/:itemId' do
 
 end
 
 post '/cart/checkout' do
-
+  erb :'cart/checkout'
 end
 
 
@@ -209,18 +224,14 @@ end
 #these are forced sessions!
 get '/admin/login' do
   session[:admin] = true
-end
-
-post '/admin/login' do
-  session[:admin] = true
   redirect '/sellers'
 end
 
+
 get '/admin/logout' do
   session[:admin] = false
-end
-
-post '/admin/logout' do
-  session[:admin] = false
+  if current_cart.nil?
+    create_cart
+  end
   redirect '/'
 end
