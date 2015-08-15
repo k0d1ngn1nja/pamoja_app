@@ -138,3 +138,28 @@ end
 post '/sellers/show' do
  erb :'/sellers/show'
 end
+
+
+post '/admin/login' do
+  session[:admin] = true
+end
+
+get '/cart/add/:productId' do
+
+end
+
+post '/cart/:id/item/:itemId/qunaity/:qty' do
+
+end
+
+delete '/cart/:id/item/:itemId' do
+
+end
+
+post '/cart/checkout' do
+
+end
+
+post '/buyer/login' do
+  session[:buyer_id] = 1
+end
