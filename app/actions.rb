@@ -24,6 +24,11 @@ get '/products' do
   erb :'products/index'
 end
 
+get '/sellers/profile' do
+  erb :'/sellers/seller-profile'
+end
+
+
 get '/products/new' do
   if current_buyer
     redirect "/"

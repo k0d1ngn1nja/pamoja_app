@@ -13,7 +13,6 @@ class AddTables < ActiveRecord::Migration
 
     create_table :products do |t|
       t.references :seller
-      t.references :buyer
       t.string :name
       t.string :description
       t.string :category
@@ -33,6 +32,18 @@ class AddTables < ActiveRecord::Migration
     create_table :images do |t|
       t.references :product
       t.string :file_path
+      t.timestamps null:true
+    end
+
+    create_table :item do |t|
+      t.references :product
+      t.integer :quantity
+      t.timestamps null:true
+    end
+
+    create_table :cart do |t|
+      t.references :item
+      t.references :buyer
       t.timestamps null:true
     end
   end
