@@ -6,14 +6,15 @@ helpers do
   end
 
   def current_cart
-    binding.pry
-    if current_buyer
-      @cart = Cart.create(buyer_id: @buyer.id)
+    unless session[:admin] == true
+      @cart = Cart.create(buyer_id: current_buyer.id)
     end
   end
+
 end
 
 get '/' do
+
   @products = Product.order(:created_at)
   erb :index
 end
