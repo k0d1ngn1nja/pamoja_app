@@ -190,9 +190,9 @@ post '/cart/:id/item/:itemId/qunaity/:qty' do
 end
 
 post '/cart/item/add' do
+  binding.pry
   @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
-  redirect to 'products/:id'
-  erb :'/products/show'
+  redirect to "products/#{params[:product_id]}"
 end
 
 delete '/cart/:id/item/:itemId' do
