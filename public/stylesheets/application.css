@@ -158,7 +158,9 @@ color: #cc181e; }
   opacity: 0;
   transition: all 0.2s linear; }
 .overlay-fade-in img {
-  transition: all 0.2s linear; }
+  transition: all 0.2s linear; 
+  height: 15rem;
+  width: 15rem;}
 .overlay-fade-in .image-overlay-content {
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.4);
@@ -194,5 +196,4 @@ color: #cc181e; }
   transition-delay: 0.1s; }
 .overlay-fade-in:hover .button {
   transition-delay: 0.2s; }
-
 
