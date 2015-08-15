@@ -1,0 +1,19 @@
+<a href="sellers/new"><p>Create new seller</p></a>
+
+<div class="row">
+  <div class ="slider">
+  <div id="slider">
+   <figure>
+    <% @products.take(5).each do |product| %>
+      <% product.images.each do |image| %>
+        <img src="<%= image.file_path %>">
+      <% end %>
+    <% end %>
+   </figure>
+  </div>
+  </div>
+</div>
+
+<div id="banner">
+  <img src="/images/logo/pamoja_white.png">
+</div>
