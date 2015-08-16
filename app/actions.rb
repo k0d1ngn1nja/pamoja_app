@@ -50,6 +50,7 @@ end
 
 get '/products/:id' do
   @product = Product.find params[:id]
+  @seller = @product.seller
   erb :'/products/show'
 end
 

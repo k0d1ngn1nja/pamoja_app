@@ -18,10 +18,9 @@
       </form>
       <div class ="small-2 columns">
         <img id="thumb" src="<%= item.product.images.first.file_path %>">
-        <%= item.product.name %> 
       </div>
       <div id="item_description" class ="small-3 columns">
-        $<%= item.product.description %>
+        <%= item.product.name %>
       </div>
       <div id="item_price" class ="small-1 columns">
         $<%= item.product.price %>
