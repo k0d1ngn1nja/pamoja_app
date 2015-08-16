@@ -81,10 +81,6 @@ get '/sellers/:id/edit' do
   erb :'/sellers/edit'
 end
 
-get '/image' do
-  
-end
-
 post '/products/new' do
   @product = Product.create(
     name: params[:name],
@@ -179,50 +175,34 @@ get '/cart' do
   erb :'/cart/index'
 end
 
-
-
 get '/cart/add/:item_id' do
 
 end
 
-post '/cart/add/:item_id' do
+# post '/cart/add/:item_id' do
 
-end
+# end
 
-post '/cart/:id/item/:itemId/qunaity/:qty' do
+# post '/cart/:id/item/:itemId/qunaity/:qty' do
 
-end
+# end
 
 post '/cart/item/add' do
   @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
-  redirect to "products/#{params[:product_id]}"
+  redirect to "/cart"
 end
 
-delete '/cart/:id/item/:itemId' do
-
+delete '/cart' do
+    item = Item.find params[:item_id]
+    # product_id = current_cart.items.each do |product|
+    #   product.id
+    item.destroy
+    redirect to '/cart'
 end
 
 post '/cart/checkout' do
   erb :'cart/checkout'
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #these are forced sessions!
 get '/admin/login' do
@@ -237,4 +217,23 @@ get '/admin/logout' do
     create_cart
   end
   redirect '/'
+end
+
+post '/charge' do
+  # Amount in cents
+  @amount = 500
+
+  customer = Stripe::Customer.create(
+    :email => 'customer@example.com',
+    :card  => params[:stripeToken]
+  )
+
+  charge = Stripe::Charge.create(
+    :amount      => @amount,
+    :description => 'Sinatra Charge',
+    :currency    => 'usd',
+    :customer    => customer.id
+  )
+
+  erb :charge
 end
