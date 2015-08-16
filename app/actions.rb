@@ -206,7 +206,24 @@ post '/cart/checkout' do
   erb :'cart/checkout'
 end
 
+post '/charge' do
+  # Amount in cents
+  @amount = 500
 
+  customer = Stripe::Customer.create(
+    :email => 'customer@example.com',
+    :card  => params[:stripeToken]
+  )
+
+  charge = Stripe::Charge.create(
+    :amount      => @amount,
+    :description => 'Sinatra Charge',
+    :currency    => 'usd',
+    :customer    => customer.id
+  )
+
+  erb :charge
+end
 
 
 
