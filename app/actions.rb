@@ -191,7 +191,7 @@ end
 
 post '/cart/item/add' do
   @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
-  redirect to 'products/:id'
+  redirect to "products/#{params[:product_id]}"
   erb :'/products/show'
 end
 
