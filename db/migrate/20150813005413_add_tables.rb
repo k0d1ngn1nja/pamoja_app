@@ -35,14 +35,14 @@ class AddTables < ActiveRecord::Migration
       t.timestamps null:true
     end
 
-    create_table :item do |t|
+    create_table :items do |t|
       t.references :product
+      t.references :cart
       t.integer :quantity
       t.timestamps null:true
     end
 
-    create_table :cart do |t|
-      t.references :item
+    create_table :carts do |t|
       t.references :buyer
       t.timestamps null:true
     end

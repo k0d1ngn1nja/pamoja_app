@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="large-2 columns">
     <img src="http://placehold.it/400x300&text=[img]">
@@ -5,6 +6,7 @@
     <img src="http://placehold.it/400x300&text=[img]">
 <hr/>
     <img src="http://placehold.it/400x300&text=[img]">
+
   </div>
 
   <div class="large-5 columns">
@@ -16,21 +18,23 @@
   </div>
 
   <div class="large-5 columns">
+   <div class="panel">
     <h2>Description:</h2>
     <p><%= @product.description %>
       Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.
       Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. 
     </p>
-   <div class="panel">
-      <h3 class="text-center"><%= @product.price %></h3>
-      <a href="#" class="expand button radius success">Add to Cart</a>
+      <h3 class="text-center">$<%= @product.price %></h3>
+      <form method="post" action="/cart/item/add">  
+        <input type="hidden" name="product_id" value="<%= @product.id %>">
+        <input type="submit" value="Add to cart" class="expand button radius success">
+      </form>
+      <% unless current_buyer %>
+        <form action="/products/<%= @product.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete this post" class="expand button radius alert">
+        </form>    
+     <% end %>
     </div>
   </div>
 </div>
-
-<form action="/products/<%= @product.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <ul class="center">
-    <input type="submit" value="Delete this post" class="button">
-  </ul>
-</form>

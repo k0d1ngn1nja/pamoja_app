@@ -1,3 +1,21 @@
+helpers do
+  def current_buyer
+    if session[:admin] == false && Buyer.first
+      @buyer = Buyer.first
+    end
+  end
+
+  def create_cart
+    if current_buyer 
+      @cart = Cart.create(buyer_id: current_buyer.id) 
+    end
+  end
+
+  def current_cart
+    Cart.first
+  end 
+end
+
 get '/' do
   @products = Product.order(:created_at)
   erb :index
@@ -14,12 +32,20 @@ get '/sellers/profile/:id' do
 end
 
 get '/products/new' do
-  @sellers = Seller.all
-  erb :'/products/new'
+  if current_buyer
+    redirect "/"
+  else
+    @sellers = Seller.all
+    erb :'/products/new'
+  end
 end
 
 get '/sellers/new' do
-  erb :'/sellers/new'
+  if current_buyer
+    redirect "/"
+  else
+    erb :'/sellers/new'
+  end
 end
 
 get '/products/:id' do
@@ -128,27 +154,37 @@ put '/sellers/:id/edit' do
 end
 
 delete '/sellers/:id' do
-  seller = Seller.find params[:id]
-  seller.destroy
-  redirect to '/sellers'
+  unless current_buyer
+    seller = Seller.find params[:id]
+    seller.destroy
+  end
+    redirect to '/sellers'
 end
 
 delete '/products/:id' do
-  product = Product.find params[:id]
-  product.destroy
-  redirect to '/products'
+  unless current_buyer
+    product = Product.find params[:id]
+    product.destroy
+  end
+    redirect to '/products'
 end
 
 post '/sellers/show' do
  erb :'/sellers/show'
 end
 
-
-post '/admin/login' do
-  session[:admin] = true
+get '/cart' do
+  @cart = current_cart
+  erb :'/cart/index'
 end
 
-get '/cart/add/:productId' do
+
+
+get '/cart/add/:item_id' do
+
+end
+
+post '/cart/add/:item_id' do
 
 end
 
@@ -156,14 +192,48 @@ post '/cart/:id/item/:itemId/qunaity/:qty' do
 
 end
 
+post '/cart/item/add' do
+  @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
+  redirect to "products/#{params[:product_id]}"
+end
+
 delete '/cart/:id/item/:itemId' do
 
 end
 
 post '/cart/checkout' do
-
+  erb :'cart/checkout'
 end
 
-post '/buyer/login' do
-  session[:buyer_id] = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#these are forced sessions!
+get '/admin/login' do
+  session[:admin] = true
+  redirect '/sellers'
+end
+
+
+get '/admin/logout' do
+  session[:admin] = false
+  if current_cart.nil?
+    create_cart
+  end
+  redirect '/'
 end

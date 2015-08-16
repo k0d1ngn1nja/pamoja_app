@@ -196,7 +196,6 @@ color: #cc181e; }
 .overlay-fade-in:hover .button {
   transition-delay: 0.2s; }
 
-
 .testing {
   border: 1px solid black;
   background-color: red;
@@ -207,3 +206,61 @@ color: #cc181e; }
   width: 400px;
   height: 100px;
 }
+
+#cart{
+  margin: 0 auto;
+}
+
+#thumb{
+  width: 4rem;
+  height: 4rem;
+  display: block;
+  margin: 0rem auto;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px #888888;
+}
+
+#cart_item{
+  height: 6rem;
+  margin: 0rem auto;
+}
+
+#item_price{
+  margin: 2rem 3rem 0rem 7rem;
+  color: #418b2a;
+  text-align: right;
+  position: relative right;
+}
+
+#item_description{
+  margin: 2rem 0rem 0rem 0rem;
+  color: #418b2a;
+}
+
+#item_quantity{
+  margin: 1rem 0rem 0rem 0rem;
+  color: #418b2a;
+}
+
+#item_quantity select{
+  border-radius: 20%;
+}
+
+#item_delete{
+  float: right;
+}
+#item_delete form a {
+  color: #939393;
+}
+
+#item_delete form a:hover{
+  color: #CC0630;
+}
+
+#cart_title{
+  color: #418b2a;
+  background-color: white;
+  border-bottom: solid 1px #BDEAAC; 
+  font-size: 20px;
+}
+

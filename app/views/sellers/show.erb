@@ -1,4 +1,4 @@
-<!-- ============================================================= -->
+
 <div class="row">
   <div class="large-6 columns">
     <img src="<%=@seller.image%>">
@@ -22,13 +22,13 @@
   </div>
 </div>
 
-  <div class="large-5 columns">
-    <a href="/sellers/<%= @seller.id %>/edit" class="button">Edit</a>
-    <a href="/sellers/<%= @seller.id %>/edit" class="button">Home</a>
-    <form action="/sellers/<%= @seller.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" class="button" value="Delete this post">
-    </form>
-  </div>
 
-  <!-- <p><%= @seller.blurb %></p> -->
+<% unless current_buyer %>
+  <form action="/sellers/<%= @seller.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" class="button" value="Delete this post">
+  </form>
+  <a href="/sellers/<%= @seller.id %>/edit" class="button">Edit</a>
+  <a href="/sellers/<%= @seller.id %>/edit" class="button">Home</a>
+<% end %>
+
