@@ -27,9 +27,10 @@
         $<%= item.product.price %>
       </div>
       <div class ="small-1 columns" id="item_delete">
-        <form action="/carts" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit">
+        <form action="/cart" method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="item_id" value="<%=item.id%>">
+          <input type="submit" value="Delete">
         </form>
       </div>
     </div>  
@@ -38,8 +39,15 @@
       <h5> 
         Total: $<%= current_cart.items.inject(0){|sum, item| sum + item.product.price} %>
       </h5>
-      <form class="cta-button">
-        <a class="button" href="#">Checkout</a>
+      <form action="/charge" method="POST">
+        <script
+          src="https://checkout.stripe.com/checkout.js" 
+          class="stripe-button"
+          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+          data-amount="<%= current_cart.items.inject(0){|sum, item| sum + item.product.price} * 100%>"
+          data-image="/images/logo/menu-logo-colored.png"
+        >
+        </script>
       </form>
     </div>
   </div>
@@ -47,17 +55,3 @@
 
 
 
-
-
-
-
-<form action="" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-    data-amount="2000"
-    data-name="Demo Site"
-    data-description="2 widgets ($20.00)"
-    data-image="/128x128.png">
-  </script>
-</form>

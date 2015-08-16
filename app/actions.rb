@@ -80,10 +80,6 @@ get '/sellers/:id/edit' do
   erb :'/sellers/edit'
 end
 
-get '/image' do
-  
-end
-
 post '/products/new' do
   @product = Product.create(
     name: params[:name],
@@ -192,14 +188,15 @@ end
 
 post '/cart/item/add' do
   @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
-  redirect to "products/#{params[:product_id]}"
+  redirect to "/cart"
 end
 
-delete '/carts/checkout' do
-    item = Item.find params[:id]
-    product = item.Product.find
-    product.destroy
-    redirect to '/carts'
+delete '/cart' do
+    item = Item.find params[:item_id]
+    # product_id = current_cart.items.each do |product|
+    #   product.id
+    item.destroy
+    redirect to '/cart'
 end
 
 post '/cart/checkout' do
@@ -219,4 +216,23 @@ get '/admin/logout' do
     create_cart
   end
   redirect '/'
+end
+
+post '/charge' do
+  # Amount in cents
+  @amount = 500
+
+  customer = Stripe::Customer.create(
+    :email => 'customer@example.com',
+    :card  => params[:stripeToken]
+  )
+
+  charge = Stripe::Charge.create(
+    :amount      => @amount,
+    :description => 'Sinatra Charge',
+    :currency    => 'usd',
+    :customer    => customer.id
+  )
+
+  erb :charge
 end
