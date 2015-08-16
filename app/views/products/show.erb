@@ -25,7 +25,7 @@
       Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. 
     </p>
       <h3 class="text-center">$<%= @product.price %></h3>
-      <form method="post" action="/cart/item/add">  
+      <form method="post" action="/cart/item/add">
         <input type="hidden" name="product_id" value="<%= @product.id %>">
         <input type="submit" value="Add to cart" class="expand button radius success">
       </form>

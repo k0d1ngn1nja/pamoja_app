@@ -1,5 +1,3 @@
-<h1 class="text-center">LIST OF ALL PRODUCTS</h1>
-
 <div class="row">
 <% @products.each do |product| %>
   <a href="products/<%= product.id %>">
@@ -18,9 +16,11 @@
 <% end %>
 </div>
 
+<% unless current_buyer %>
 <div class="row">
   <div class="large-12 column">
     <a href="/products/new" class="button expand radius success ">Add New Product</a>
   </div>
 </div>
+<% end %>s
 
