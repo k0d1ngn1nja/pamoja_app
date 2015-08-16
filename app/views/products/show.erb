@@ -1,40 +1,63 @@
 
 <div class="row">
-  <div class="large-2 columns">
-    <img src="http://placehold.it/400x300&text=[img]">
-<hr/>
-    <img src="http://placehold.it/400x300&text=[img]">
-<hr/>
-    <img src="http://placehold.it/400x300&text=[img]">
-
-  </div>
-
-  <div class="large-5 columns">
+  <div class="small-6 columns">
      <div>
       <% @product.images.each do |image| %>
-      <img class="testing" src="<%= image.file_path%>">
+      <img class="product_page" src="<%= image.file_path%>">
       <% end %>
     </div>
   </div>
 
-  <div class="large-5 columns">
-   <div class="panel">
+  <div class="small-6 columns">
+    <div class="panel">
     <h2>Description:</h2>
-    <p>
-      <%= @product.description %>
-    </p>
-      <h3 class="text-center">$<%= @product.price %></h3>
-      <form method="post" action="/cart/item/add">
-        <input type="hidden" name="product_id" value="<%= @product.id %>">
-        <input type="submit" value="Add to cart" class="expand button radius success">
-      </form>
-      <% unless current_buyer %>
-        <form action="/products/<%= @product.id %>" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete this post" class="expand button radius alert">
-        </form>    
-     <% end %>
+      <p>
+        <%= @product.description %>
+      </p>
+        <h3 class="text-center">$<%= @product.price %></h3>
+        <form method="post" action="/cart/item/add">
+          <input type="hidden" name="product_id" value="<%= @product.id %>">
+          <input type="submit" value="Add to cart" class="expand button radius success">
+        </form>
+        <% unless current_buyer %>
+          <form action="/products/<%= @product.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete this post" class="expand button radius alert">
+          </form>    
+       <% end %>
     </div>
+    <div class= "row">
+      <div class="small-4 columns">
+      <% @seller.products.where(id: rand(1..12)).each do |product| %>
+        <% product.images.each do |image| %>
+          <a href= "/products/<%= image.product.id %>"> 
+            <img class="product_page" src="<%= image.file_path %>" alt="" />
+            </a>
+          <% end %>  
+        <% end %> 
+      </div>
+      <div class="small-4 columns">
+        <% @seller.products.where(id: rand(1..12)).each do |product| %>
+        <% product.images.each do |image| %>
+            <a href= "/products/<%= image.product.id %>"> 
+              <img class="product_page" src="<%= image.file_path %>" alt="" />
+            </a>
+          <% end %>
+        <% end %>   
+      </div>
+      <div class="small-4 columns">
+        <% @seller.products.where(id: rand(1..12)).each do |product| %>
+          <% product.images.each do |image| %>
+            <a href= "/products/<%= image.product.id %>"> 
+              <img class="product_page" src="<%= image.file_path %>" alt="" />
+            </a>
+          <% end %>
+        <% end %>   
+      </div>
+    </div>
+    <p class="product_page_p"> 
+      Check out some other cool items by <%= @product.seller.name %> 
+    </p>
   </div>
 </div>
 

@@ -4,7 +4,7 @@ Seller.create(name: "Alan" , location: "Kenya", story: ".", blurb: "I make shiny
 # 1
 Product.create(name: "Shopping Tote" , description: "This is a greate tote offering a modern handbag silhouette that reflects a woman's confident personal style. Work-appropriate, clean and sophisticated, AK Anne Klein handbags are made for the woman who wants timeless style. The brand offers function and fashion that is instantly wearable and always comfortable.", category: "Clothing and Accessories", price: 15, seller_id: 1)
 #2
-Product.create(name: "AFRICAN WOMAN maxi" , description: "The AFRICAN WOMAN maxi skirt is a classic maxi skirt and sits comfortably at the waist. This skirt boasts beautiful colors, perfect for the warmer days ahead.", category: "Clothing and Accessories", price: 45, seller_id: 1)
+Product.create(name: "AFRICAN maxi" , description: "The AFRICAN WOMAN maxi skirt is a classic maxi skirt and sits comfortably at the waist. This skirt boasts beautiful colors, perfect for the warmer days ahead.", category: "Clothing and Accessories", price: 45, seller_id: 1)
 #3
 Product.create(name: "Baba Tree Baskets" , description: "We have a large selection of African baskets from Bolgatanga in various sizes and patterns. To purchase a basket and see our available stock for online sales please visit the online sales page. You will pay securlely with VISA, MC, your bank account or your PayPal account. We use PayPal to facilitate all your online shopping needs.", category: "Woven Products", price: 50, seller_id: 1)
 #4
