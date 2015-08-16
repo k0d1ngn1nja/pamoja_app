@@ -5,7 +5,7 @@
   
   <div>
     <% @product.images.each do |image| %>
-    <img src="<%= image.file_path%>">
+    <img src="<%= image.file_path %>">
     <% end %>
   </div>
 
@@ -22,8 +22,12 @@
 </form>
 
 <form method="post" action="/cart/item/add">  
-      <!-- <input type="hidden" name="product_id" value="<%= @product.id %>"> -->
+<!-- <<<<<<< HEAD
+      <input type="hidden" name="product_id" value="<%=# @product.id %>">
+======= -->
+      <input type="hidden" name="product_id" value="<%= @product.id %>">
+<!-- >>>>>>> f9db5fb0ffe64ed41e30aba048bd540740c3dd90
       <ul class="right">
-      <input type="submit" name="product_id" value="<%= @product.id%>"class="button">add products</input>
-      </ul>
+      <input type="submit" name="product_id" value="<%= #@product.id%>"class="button">add products</input>
+      </ul> -->
 </form>

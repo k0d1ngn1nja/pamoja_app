@@ -1,9 +1,14 @@
-<form action="/sellers/<%= @seller.id %>" method="POST">
-   <input type="hidden" name="_method" value="DELETE">
-   <input type="submit" class="button" value="Delete this post">
-</form>
 
-<a href="/sellers/<%= @seller.id %>/edit" class="button">Edit</a>
+<% unless current_buyer %>
+  <form action="/sellers/<%= @seller.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" class="button" value="Delete this post">
+  </form>
+
+
+  <a href="/sellers/<%= @seller.id %>/edit" class="button">Edit</a>
+<% end %>
+
 <a href="/sellers/<%= @seller.id %>/edit" class="button">Home</a>
 
 

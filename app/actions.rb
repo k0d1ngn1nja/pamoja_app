@@ -155,15 +155,19 @@ put '/sellers/:id/edit' do
 end
 
 delete '/sellers/:id' do
-  seller = Seller.find params[:id]
-  seller.destroy
-  redirect to '/sellers'
+  unless current_buyer
+    seller = Seller.find params[:id]
+    seller.destroy
+  end
+    redirect to '/sellers'
 end
 
 delete '/products/:id' do
-  product = Product.find params[:id]
-  product.destroy
-  redirect to '/products'
+  unless current_buyer
+    product = Product.find params[:id]
+    product.destroy
+  end
+    redirect to '/products'
 end
 
 post '/sellers/show' do
@@ -190,9 +194,9 @@ post '/cart/:id/item/:itemId/qunaity/:qty' do
 end
 
 post '/cart/item/add' do
+  binding.pry
   @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
   redirect to "products/#{params[:product_id]}"
-  erb :'/products/show'
 end
 
 delete '/cart/:id/item/:itemId' do

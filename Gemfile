@@ -13,6 +13,7 @@ gem 'pg'
 gem 'carrierwave'
 gem 'puma'
 gem 'tux'
+gem 'stripe'
 
 group :development, :test do
   gem 'pry'
