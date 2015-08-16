@@ -191,7 +191,6 @@ end
 # end
 
 post '/cart/item/add' do
-  binding.pry
   @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
   redirect to "products/#{params[:product_id]}"
 end
@@ -206,24 +205,6 @@ end
 post '/cart/checkout' do
   erb :'cart/checkout'
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #these are forced sessions!
 get '/admin/login' do

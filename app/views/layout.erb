@@ -37,15 +37,13 @@
           <li><label>Pamoja</label></li>
           <li><a href="/">Home</a></li>
           <li><a href="/products">Products List</a></li>
-          <% unless current_buyer %>
-            <li><a href="/products/new">Add Product</a></li>
-          <% end %>
           <li><a href="/sellers">Sellers List</a></li>
           <% unless current_buyer %>
             <li><a href="/sellers/new">Add Seller</a></li>
+            <li><a href="/products/new">Add Product</a></li>
           <% end %>
-          <% if create_cart%>
-            <li><a href="/cart"><%= "Shopping Cart"%></a></li>
+          <% if current_cart%>
+            <li><a href="/cart">Shopping Cart</a></li>
           <% end %>
         </ul>
       </nav>
