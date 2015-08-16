@@ -5,7 +5,6 @@ end
 
 get '/products' do
   @products = Product.order(:created_at) 
-  # .take(6)
   erb :'products/index'
 end
 
@@ -13,7 +12,6 @@ get '/sellers/profile/:id' do
   @seller = Seller.find(params[:id])
   erb :'/sellers/seller-profile'
 end
-
 
 get '/products/new' do
   @sellers = Seller.all

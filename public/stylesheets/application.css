@@ -1,9 +1,9 @@
 #new_products{
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 #new_sellers{
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 @keyframes slidy {
@@ -138,7 +138,9 @@ color: #cc181e; }
   overflow: hidden;
   position: relative;
   text-align: center;
-  border-radius: 4px; }
+  border-radius: 4px;
+  margin-bottom: 15px; 
+}
 
 .image-overlay-content {
   width: 100%;
@@ -194,3 +196,14 @@ color: #cc181e; }
 .overlay-fade-in:hover .button {
   transition-delay: 0.2s; }
 
+
+.testing {
+  border: 1px solid black;
+  background-color: red;
+  height: 350px; 
+}
+
+.testing img {
+  width: 400px;
+  height: 100px;
+}

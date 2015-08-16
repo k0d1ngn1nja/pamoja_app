@@ -1,15 +1,34 @@
-<form action="/sellers/<%= @seller.id %>" method="POST">
-   <input type="hidden" name="_method" value="DELETE">
-   <input type="submit" class="button" value="Delete this post">
-</form>
+<!-- ============================================================= -->
+<div class="row">
+  <div class="large-6 columns">
+    <img src="<%=@seller.image%>">
+  </div>
+  <div class="large-6 columns">
+    <h4>This is a content section.</h4>
+    <h4>Name:<p> <%= @seller.name %> </p></h4>
+    <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+  </div>
+</div>
 
-<a href="/sellers/<%= @seller.id %>/edit" class="button">Edit</a>
-<a href="/sellers/<%= @seller.id %>/edit" class="button">Home</a>
+<div class="row">
+  <hr/>
+  <div class="large-6 columns">
+    <h4>This is a content section.</h4>
+    <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+  </div>
+  <div class="large-6 columns">
+    <h4>This is a content section.</h4>
+    <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+  </div>
+</div>
 
+  <div class="large-5 columns">
+    <a href="/sellers/<%= @seller.id %>/edit" class="button">Edit</a>
+    <a href="/sellers/<%= @seller.id %>/edit" class="button">Home</a>
+    <form action="/sellers/<%= @seller.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" class="button" value="Delete this post">
+    </form>
+  </div>
 
-<p><%= @seller.name %></p>
-<p><%= @seller.location %></p>
-<p><%= @seller.blurb %></p>
-
-
-<img src="<%=@seller.image%>">
+  <!-- <p><%= @seller.blurb %></p> -->
