@@ -1,46 +1,47 @@
 <div id= "cart" class="small-6 small-offset-3 columns">
-  <ul class="pricing-table">
-  <div id="cart_title" class="title">Shopping Cart</div>
-  <%current_cart.items.each do |item|%>
-  <div id= "cart_item" class="bullet-item">
-    <form>
-      <div id="item_quantity" class="small-1 columns">
-          <select name="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-      </div>
-    </form>
-    <div class ="small-2 columns">
-      <img id="thumb" src="<%= item.product.images.first.file_path %>">
-      <%= item.product.name %> 
+  <div class="pricing-table">
+    <div id="cart_title" class="title">
+      Shopping Cart
     </div>
-    <div id="item_description" class ="small-3 columns">
-      $<%= item.product.description %>
-    </div>
-    <div id="item_price" class ="small-1 columns">
-      $<%= item.product.price %>
-    </div>
-    <div class ="small-1 columns" id="item_delete">
+    <%current_cart.items.each do |item|%>
+    <div id= "cart_item" class="bullet-item">
       <form>
-        <a href="#"> x </a>
+        <div id="item_quantity" class="small-1 columns">
+            <select name="quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+        </div>
+      </form>
+      <div class ="small-2 columns">
+        <img id="thumb" src="<%= item.product.images.first.file_path %>">
+        <%= item.product.name %> 
+      </div>
+      <div id="item_description" class ="small-3 columns">
+        $<%= item.product.description %>
+      </div>
+      <div id="item_price" class ="small-1 columns">
+        $<%= item.product.price %>
+      </div>
+      <div class ="small-1 columns" id="item_delete">
+        <form>
+          <a href="#"> x </a>
+        </form>
+      </div>
+    </div>  
+    <%end%>
+    <div id= "cart_total" class="bullet-item">
+      <h5> 
+        Total: $<%= current_cart.items.inject(0){|sum, item| sum + item.product.price} %>
+      </h5>
+      <form class="cta-button">
+        <a class="button" href="#">Checkout</a>
       </form>
     </div>
-  </div>  
-  <%end%>
-  <div >
-      <% current_cart.items.each do |item| %>
-      <%= item.product.price.inject(0){|sum, price| sum + price} %>
-      <% end %>
   </div>
-  <form class="cta-button">
-    <a class="button" href="#">Checkout</a>
-  </form>
-  </ul>
-
 </div>
 
 
