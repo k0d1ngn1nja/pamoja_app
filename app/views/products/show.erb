@@ -3,18 +3,22 @@
   <div class="small-6 columns">
      <div>
       <% @product.images.each do |image| %>
-      <img class="product_page" src="<%= image.file_path%>">
+      <a><img class="product_page" src="<%= image.file_path%>">
       <% end %>
     </div>
   </div>
 
   <div class="small-6 columns">
     <div class="panel">
-    <div id="product_description">
-      <img id="thumb_2" src="<%= @seller.image %>">
-      <h4><%= @seller.name %></h4>
-      <p><%= @seller.location %></p>
-    </div>
+   <a href="/sellers/<%= @seller.id%>"> 
+      <div id="product_description">
+        <img id="thumb_2" src="<%= @seller.image %>">
+        <h4><%= @seller.name %></h4>
+        <p><%= @seller.location %></p>
+        <h4>Category:</h4>
+        <p><%= @product.category %></p>
+      </div>
+    </a>
     <h2>Description:</h2>
       <p>
         <%= @product.description %>
