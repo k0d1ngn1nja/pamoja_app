@@ -27,7 +27,7 @@
       <h5> 
         Total: $<%= current_cart.items.inject(0){|sum, item| sum + item.product.price} %>
       </h5>
-      <form action="/charge" method="POST">
+      <form action="/cart" method="POST">
         <script
           src="https://checkout.stripe.com/checkout.js" 
           class="stripe-button"

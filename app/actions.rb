@@ -221,7 +221,7 @@ get '/admin/logout' do
   redirect '/'
 end
 
-post '/charge' do
+post '/cart' do
   # Amount in cents
   @amount = 500
 
@@ -237,5 +237,5 @@ post '/charge' do
     :customer    => customer.id
   )
 
-  erb :charge
+  erb :cart
 end
