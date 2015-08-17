@@ -559,7 +559,8 @@ select {
     width: 25%; }
 
   .medium-4 {
-    width: 33.33333%; }
+    width: 33.33333%; 
+    max-height: 501px;}
 
   .medium-5 {
     width: 41.66667%; }
