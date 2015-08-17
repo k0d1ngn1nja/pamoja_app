@@ -221,6 +221,15 @@ color: #cc181e; }
   box-shadow: 2px 2px 5px #888888;
 }
 
+#thumb_2{
+  width: 8rem;
+  height: 8rem;
+  display: block;
+  margin: 0rem auto;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px #888888;
+}
+
 #cart_item{
   height: 6rem;
   margin: 0rem auto;
@@ -263,5 +272,16 @@ color: #cc181e; }
   background-color: white;
   border-bottom: solid 1px #BDEAAC; 
   font-size: 20px;
+}
+
+#product_description p{
+  text-align: center;
+  margin-top: -0.5rem;
+  color: #7A7979;
+}
+
+#product_description h4{
+  text-align: center;
+  color: #7A7979;
 }
 

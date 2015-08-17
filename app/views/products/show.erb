@@ -10,6 +10,11 @@
 
   <div class="small-6 columns">
     <div class="panel">
+    <div id="product_description">
+      <img id="thumb_2" src="<%= @seller.image %>">
+      <h4><%= @seller.name %></h4>
+      <p><%= @seller.location %></p>
+    </div>
     <h2>Description:</h2>
       <p>
         <%= @product.description %>
@@ -28,7 +33,7 @@
     </div>
     <div class= "row" id= "product_page">
       <div class="small-4 columns">
-      <% @seller.products.where(id: rand((@seller.products.first.id)..(@seller.products.last.id))).each do |product| %>
+      <% @seller.products.where(id: rand((@seller.products.first.id)..(@seller.products.last.id))).take(3).each do |product| %>
         <% product.images.each do |image| %>
           <a href= "/products/<%= image.product.id %>"> 
             <img class="product_page" src="<%= image.file_path %>" alt="" />
@@ -37,22 +42,22 @@
         <% end %> 
       </div>
       <div class="small-4 columns">
-        <% @seller.products.where(id: rand(1..12)).each do |product| %>
+      <% @seller.products.where(id: rand((@seller.products.first.id)..(@seller.products.last.id))).take(3).each do |product| %>
         <% product.images.each do |image| %>
-            <a href= "/products/<%= image.product.id %>"> 
-              <img class="product_page" src="<%= image.file_path %>" alt="" />
+          <a href= "/products/<%= image.product.id %>"> 
+            <img class="product_page" src="<%= image.file_path %>" alt="" />
             </a>
-          <% end %>
-        <% end %>   
+          <% end %>  
+        <% end %> 
       </div>
-      <div class="small-4 columns">
-        <% @seller.products.where(id: rand(1..12)).each do |product| %>
-          <% product.images.each do |image| %>
-            <a href= "/products/<%= image.product.id %>"> 
-              <img class="product_page" src="<%= image.file_path %>" alt="" />
+            <div class="small-4 columns">
+      <% @seller.products.where(id: rand((@seller.products.first.id)..(@seller.products.last.id))).take(3).each do |product| %>
+        <% product.images.each do |image| %>
+          <a href= "/products/<%= image.product.id %>"> 
+            <img class="product_page" src="<%= image.file_path %>" alt="" />
             </a>
-          <% end %>
-        <% end %>   
+          <% end %>  
+        <% end %> 
       </div>
       <p>
         Check out some other cool items by <%= @product.seller.name %> 
