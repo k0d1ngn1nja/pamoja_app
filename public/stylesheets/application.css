@@ -295,3 +295,12 @@ color: #cc181e; }
   color: red;
 }
 
+.homepage-spacing {
+  margin-top: 10px;
+}
+
+.homepage-spacing img {
+  float: left;
+  margin-right: 10px;
+}
+
