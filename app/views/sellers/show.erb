@@ -33,7 +33,7 @@
             <h4>Work by <%= @seller.name %></h4><hr>
             <div class="row">
               <% @product.take(3).each do |product| %>
-              <a href="<%= product.id %>">
+              <a href="/products/<%= product.id %>">
               <div class="row">
               <div class="small-12 columns">
                 <div class="image-wrapper overlay-fade-in">

@@ -32,6 +32,12 @@ get '/sellers/profile/:id' do
   erb :'/sellers/seller-profile'
 end
 
+get '/sellers/products/:id' do
+  @seller = Seller.find params[:id]
+  @product = @seller.product
+  erb :'products/:id'
+end
+
 get '/products/new' do
   if current_buyer
     redirect "/"
