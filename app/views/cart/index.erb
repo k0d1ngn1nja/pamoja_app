@@ -1,25 +1,14 @@
-<div id= "cart" class="small-6 small-offset-3 columns">
+<div id= "cart" class="large-6 small-12 large-offset-3 small-centered-6 columns">
   <div class="pricing-table">
-    <div id="cart_title" class="title">
+    <div id="cart_title" class="title row">
       Shopping Cart
     </div>
     <%current_cart.items.each do |item|%>
-    <div id= "cart_item" class="bullet-item">
-      <form>
-        <div id="item_quantity" class="small-1 columns">
-            <select name="quantity">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-        </div>
-      </form>
-      <div class ="small-2 columns">
+    <div id= "cart_item" class="row bullet-item">
+      <div class ="small-4 columns">
         <img id="thumb" src="<%= item.product.images.first.file_path %>">
       </div>
-      <div id="item_description" class ="small-3 columns">
+      <div id="item_description" class ="large-4 small-4 columns">
         <%= item.product.name %>
       </div>
       <div id="item_price" class ="small-1 columns">
@@ -29,7 +18,7 @@
         <form action="/cart" method="POST">
           <input type="hidden" name="_method" value="delete">
           <input type="hidden" name="item_id" value="<%=item.id%>">
-          <input type="submit" value="Delete">
+          <input class="item_delete" type="submit" value="X">
         </form>
       </div>
     </div>  
