@@ -82,6 +82,10 @@ div#slider figure {
   margin-top: 0;
   text-align: center;
   text-transform: uppercase; }
+.profile-card .profile-info h5 {
+  margin-top: 0;
+  color: #6f6f6f;
+  text-align: center;}
 .profile-card .profile-info p {
   text-align: center; }
 .profile-card .profile-info .inline-list {
@@ -190,7 +194,10 @@ color: #cc181e; }
   border: 1px solid #D3D3D3;
   /*height: 350px;*/ 
 }
-
+#product_page p{
+  text-align: center;
+  color: #7A7979;
+}
 
 #cart{
   margin: 0 auto;

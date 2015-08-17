@@ -26,9 +26,9 @@
           </form>    
        <% end %>
     </div>
-    <div class= "row">
+    <div class= "row" id= "product_page">
       <div class="small-4 columns">
-      <% @seller.products.where(id: rand(1..12)).each do |product| %>
+      <% @seller.products.where(id: rand((@seller.products.first.id)..(@seller.products.last.id))).each do |product| %>
         <% product.images.each do |image| %>
           <a href= "/products/<%= image.product.id %>"> 
             <img class="product_page" src="<%= image.file_path %>" alt="" />
@@ -54,10 +54,10 @@
           <% end %>
         <% end %>   
       </div>
+      <p>
+        Check out some other cool items by <%= @product.seller.name %> 
+      </p>
     </div>
-    <p class="product_page_p"> 
-      Check out some other cool items by <%= @product.seller.name %> 
-    </p>
   </div>
 </div>
 
