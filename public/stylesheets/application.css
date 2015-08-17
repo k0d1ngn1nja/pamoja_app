@@ -213,7 +213,7 @@ color: #cc181e; }
 }
 
 #thumb{
-  width: 4rem;
+  max-width: 4rem;
   height: 4rem;
   display: block;
   margin: 0rem auto;
@@ -236,14 +236,13 @@ color: #cc181e; }
 }
 
 #item_price{
-  margin: 2rem 3rem 0rem 7rem;
+  margin: 1.5rem 0rem 0rem 0rem;
   color: #418b2a;
   text-align: right;
-  position: relative right;
 }
 
 #item_description{
-  margin: 2rem 0rem 0rem 0rem;
+  margin: 1.5rem 0rem 0rem 0rem;
   color: #418b2a;
 }
 
@@ -254,6 +253,7 @@ color: #cc181e; }
 
 #item_quantity select{
   border-radius: 20%;
+  border: 0;
 }
 
 #item_delete{
@@ -283,5 +283,15 @@ color: #cc181e; }
 #product_description h4{
   text-align: center;
   color: #7A7979;
+}
+
+.item_delete{
+  border: 0;
+  background: white;
+}
+
+.item_delete:hover{
+  border: 0;
+  color: red;
 }
 
