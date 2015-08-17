@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <link rel="stylesheet" href="/stylesheets/application.css">
   <link rel="stylesheet" href="/stylesheets/foundation.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/javascript/js/vendor/jquery.js"></script>
   <script src="/javascript/js/foundation.min.js"></script>
-
+      <!-- ----- -->
   <script src="/javascript/js/foundation/application.js"></script>
   <script src="/javascript/js/foundation/foundation.offcanvas.js"></script>
   <script src="/javascript/js/foundation/foundation.magellan.js"></script>
   <script src="https://checkout.stripe.com/checkout.js"></script>
-
-
   <!-- Other JS plugins can be included here -->
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
@@ -23,22 +20,34 @@
         <a role="button" aria-expanded="false" aria-controls="idOfLeftMenu" class="left-off-canvas-toggle menu-icon" >
           <img src="/images/logo/menu-logo.png" /></a><br>
       </div>
-      <section class="middle tab-bar-section">
-        <h1 class="title"></h1>
+      <img id="nav-bar_logo" src="/images/logo/navbar-logo.png" />
+      <section class="right top-bar-section">
+       <ul class="button-group radius">
+        <li><a href="/cart" class="small button success">Shopping Cart</a></li>
+        <li><a href="/products" class="small button success">Products</a></li>
+        <li><a href="/sellers" class="small button success">Sellers</a></li>
+      </ul>
+
+      </section>
+      <section class="middle top-bar-section">
+        <% if current_buyer%>
+          <p>Buyer status</p>
+        <% else %>
+          <p>Admin status</p>
+        <% end %>
       </section>
     </nav>
     </div>
 
     <%= yield %>
-    <!-- Off Canvas Menu -->
-    <!-- <aside class="left-off-canvas-menu"> -->
-        <!-- whatever you want goes here -->
+
+        <div data-magellan-expedition ="fixed">
         <nav class="left-off-canvas-menu">
           <ul class="off-canvas-list">
-          <li><label>Pamoja</label></li>
-          <li><a href="/">Home</a></li>
-          <li><a href="/products">Products List</a></li>
-          <li><a href="/sellers">Sellers List</a></li>
+            <li><label>Pamoja</label></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products List</a></li>
+            <li><a href="/sellers">Sellers List</a></li>
           <% unless current_buyer %>
             <li><a href="/sellers/new">Add Seller</a></li>
             <li><a href="/products/new">Add Product</a></li>
@@ -46,8 +55,14 @@
           <% if current_cart%>
             <li><a href="/cart">Shopping Cart</a></li>
           <% end %>
-        </ul>
-      </nav>
+          </ul><br>
+  
+          <div class="row" id="admin-choice">
+            <a class="button" href="/admin/login">Admin</a>
+            <a class="button" href="/admin/logout">Shopper</a>
+          </div>
+        </nav>
+        </div>
  <!--    </aside> -->
 
   <a class="exit-off-canvas"></a>

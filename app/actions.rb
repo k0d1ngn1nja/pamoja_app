@@ -207,7 +207,7 @@ end
 #these are forced sessions!
 get '/admin/login' do
   session[:admin] = true
-  redirect '/sellers'
+  redirect '/'
 end
 
 
