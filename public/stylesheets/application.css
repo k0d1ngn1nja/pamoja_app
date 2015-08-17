@@ -14,6 +14,27 @@
   margin-left: 4rem;
 }
 
+#seller-info {
+  min-height: 800px;
+}
+
+#info-wrap {
+  max-height: 500px;
+  margin: auto 0;
+}
+
+.row #below-banner {
+  max-width: 100%;
+}
+#below-banner {
+  background-image: url('http://www.traid.org.uk/wp-content/uploads/2013/06/fairtrade_foundation_project.jpg');
+  background-color: transparent;
+}
+
+#below-banner img {
+  opacity: 0.4;
+}
+
 body { margin: 0; } 
 div#slider { overflow: hidden; }
 div#slider figure img { width: 20%; float: left; }

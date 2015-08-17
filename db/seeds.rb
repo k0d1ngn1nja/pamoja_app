@@ -1,5 +1,5 @@
 Seller.create(name: "Alan" , location: "Kenya", story: ".", blurb: "I make shiny things ;)", specialty: "Jewellery" , video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-
+Seller.create(name: "Mike" , location: "Cambodia", story: ".", blurb: "I am developing skills to support my family.", specialty: "Textile" , video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
 # 1
 Product.create(name: "Shopping Tote" , description: "This is a greate tote offering a modern handbag silhouette that reflects a woman's confident personal style. Work-appropriate, clean and sophisticated, AK Anne Klein handbags are made for the woman who wants timeless style. The brand offers function and fashion that is instantly wearable and always comfortable.", category: "Clothing and Accessories", price: 15, seller_id: 1)
