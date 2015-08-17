@@ -18,6 +18,7 @@ end
 
 get '/' do
   @products = Product.order(:created_at)
+  @seller = Seller.all
   erb :index
 end
 
@@ -29,6 +30,12 @@ end
 get '/sellers/profile/:id' do
   @seller = Seller.find(params[:id])
   erb :'/sellers/seller-profile'
+end
+
+get '/sellers/products/:id' do
+  @seller = Seller.find params[:id]
+  @product = @seller.product
+  erb :'products/:id'
 end
 
 get '/products/new' do
@@ -56,6 +63,7 @@ end
 
 get '/sellers/:id' do
   @seller = Seller.find params[:id]
+  @product = @seller.products
   erb :'/sellers/show'
 end
 

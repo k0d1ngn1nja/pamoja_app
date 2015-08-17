@@ -3,7 +3,9 @@
      <div class="row">
       <div class="large-12 hide-for-small">
           <div id="featured">
-            <iframe width="1100" height="500" src="https://www.youtube.com/embed/NhQJrz-aDfI" frameborder="0" allowfullscreen></iframe>
+            <video width="1000" height="500" autoplay>
+              <source src="<%= @seller.video %>" type="video/mp4">
+            </video>
           </div>
     </div>
   </div>
@@ -17,35 +19,41 @@
             <h3><%= @seller.name %></h3><br>
         <div class="row">
           <div class="large-8 small-8 columns">
-            <div class="panel">
-              <img id="seller-profile" src="<%=@seller.image%>">
-              <h6 class="subheader"></h6>
-              <p id="seller-text"><%= @seller.story%></p>
+            <div id="seller-info">
+              <div id="info-wrap">
+                <img id="seller-profile" src="<%=@seller.image%>">
+                <h6 class="subheader"></h6>
+                <p id="seller-text"><%= @seller.story%></p>
+              </div>
             </div>
           </div>
            
                         
           <div class="large-4 small-12 columns">
             <h4>Work by <%= @seller.name %></h4><hr>
-            <div class="panel">
-              <h5><a href="#">Post Title 1</a></h5>
-              <h6 class="subheader">
-                Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Suspendisse ultrices ornare tempor...
-              </h6>
-
-              <h6><a href="#">Read More »</a></h6>
-            </div>
-
-            <div class="panel hide-for-small">
-              <h5><a href="#">Post Title 2 »</a></h5>
-            </div>
-
-            <div class="panel hide-for-small">
-              <h5><a href="#">Post Title 3 »</a></h5>
+            <div class="row">
+              <% @product.take(3).each do |product| %>
+              <a href="/products/<%= product.id %>">
+              <div class="row">
+              <div class="small-12 columns">
+                <div class="image-wrapper overlay-fade-in">
+                  <% product.images.each do |image| %>      
+                  <img src="<%= image.file_path%>" />
+                  <% end %>
+                  <div class="image-overlay-content">
+                    <h2><%= product.name %></h2>
+                    <p class="price"><%= product.price %></p>
+                   </div>
+                 </div>
+              </div>
+              </div>
+              </a>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
+  
      <% unless current_buyer %>
         <a href="/sellers/<%= @seller.id %>/edit" class="expand button radius">Edit</a>
         <form action="/sellers/<%= @seller.id %>" method="POST">

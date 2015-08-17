@@ -4,7 +4,7 @@
       <figure>
       <% @products.take(5).each do |product| %>
         <% product.images.each do |image| %>
-          <img src="<%= image.file_path %>" alt="" />
+          <a href="/products/<%= product.id %>"><img src="<%= image.file_path %>" alt="" /></a>
         <% end %>
       <% end %>
      </figure>
@@ -15,7 +15,7 @@
      <figure>
       <% @products.where(id: 6..10).each do |product| %>
         <% product.images.each do |image| %>
-          <img src="<%= image.file_path %>" alt="" />
+          <a href="/products/<%= product.id %>"><img src="<%= image.file_path %>" alt="" /></a>
         <% end %>
       <% end %>
      </figure>
@@ -26,7 +26,7 @@
      <figure>
       <% @products.last(5).each do |product| %>
         <% product.images.each do |image| %>
-          <img src="<%= image.file_path %>" alt="" />
+          <a href="/products/<%= product.id %>"><img src="<%= image.file_path %>" alt="" /></a>
         <% end %>
       <% end %>
      </figure>
@@ -36,6 +36,10 @@
 <br>
 <div id="banner">
   <img src="/images/logo/pamoja_white.png" alt="pamoja">
+</div>
+
+<div class="row">
+<p><em>"No one has ever become poor by giving." Anne Frank</em></p>
 </div>
 
 <div class="row">

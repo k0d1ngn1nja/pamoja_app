@@ -1,5 +1,6 @@
-<h1>Edit seller information</h1>
-
+<div class="small-8 small-centered columns">
+  <h5>Edit <%= @seller.name %>'s Existing Profile</h5>
+</div>
 <form id="new_sellers" method="post" action="/sellers/<%= @seller.id %>/edit">
 <input type="hidden" name="_method" value="put">
   <div class="row">

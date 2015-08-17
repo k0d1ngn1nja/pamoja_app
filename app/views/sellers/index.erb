@@ -3,8 +3,8 @@
   <%= erb :'sellers/seller', locals: { seller: seller } %>
 <% end %> 
 
-
-<a href="/sellers/new" class="button expand radius">Add a new seller</a>
-
+<% unless current_buyer %>
+<a href="/sellers/new" class="button expand radius">Add New Seller</a>
+<% end %>
 
   
