@@ -295,3 +295,17 @@ color: #cc181e; }
   color: red;
 }
 
+.homepage-spacing {
+  margin-top: 10px;
+}
+
+.homepage-spacing img {
+  float: left;
+  margin-right: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.homepage-spacing p, h1 {
+  font-family: 'Dosis', sans-serif;
+}
