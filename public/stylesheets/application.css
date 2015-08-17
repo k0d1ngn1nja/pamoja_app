@@ -338,13 +338,16 @@ color: #cc181e; }
   margin-top: 10px;
 }
 
-.homepage-spacing img {
-  float: left;
-  margin-right: 10px;
-  width: 200px;
-  height: 200px;
-}
 
 .homepage-spacing p, h1 {
   font-family: 'Dosis', sans-serif;
+}
+
+
+.homepage-spacing img {
+    float: left;
+    margin-right: 10px;
+    width: 150px;
+    height: 200px;
+    margin: 2rem 0rem 0rem 0rem;
 }

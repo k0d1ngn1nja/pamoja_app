@@ -183,22 +183,16 @@ get '/cart' do
   erb :'/cart/index'
 end
 
-get '/cart/add/:item_id' do
-
+post '/cart/item/add' do
+  @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
+  redirect to "/products/#{params[:product_id]}"
 end
 
-# post '/cart/add/:item_id' do
-
-# end
-
-# post '/cart/:id/item/:itemId/qunaity/:qty' do
-
-# end
-
-post '/cart/item/add' do
+post '/cart/item/add/cart' do
   @item = Item.create(product_id: params[:product_id], cart_id: current_cart.id, quantity: 1)
   redirect to "/cart"
 end
+
 
 delete '/cart' do
     item = Item.find params[:item_id]
