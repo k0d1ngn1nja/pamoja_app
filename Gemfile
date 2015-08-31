@@ -8,7 +8,6 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 
 gem 'sinatra-activerecord'
-gem 'pg'
 
 gem 'carrierwave'
 gem 'puma'
@@ -18,4 +17,8 @@ group :development, :test do
   gem 'pry'
   gem 'shotgun'
   gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
