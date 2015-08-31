@@ -106,9 +106,6 @@ Product.create(name: "In the desert" , description: "A tye and die explosion. Th
 #20
 Product.create(name: "African Beauty" , description:"Sculpted from scratch ma ma mia. The artistic style is comprehensive you know.
   Aute in reprehenderit, dolore aliqua non est magna in labore pig.", category: "Paintings/ Batik", price: 350, seller_id: 2)
-#21
-Product.create(name: "Laundry Basket" , description: "A tye and die explosion. The artistic style is comprehensive you know. Super duper, cool cool.
-  Aute in reprehenderit, dolore aliqua non est magna in labore pig.", category: "Woven Products", price: 65, seller_id: 2)
 
 
 Image.create(file_path: "/images/products/1_product.jpg", product_id: 1)
@@ -131,7 +128,6 @@ Image.create(file_path: "/images/products/17_product.jpg", product_id: 17)
 Image.create(file_path: "/images/products/18_product.jpg", product_id: 18)
 Image.create(file_path: "/images/products/19_product.jpg", product_id: 19)
 Image.create(file_path: "/images/products/20_product.jpg", product_id: 20)
-Image.create(file_path: "/images/products/21_product.jpg", product_id: 21)
 
 Buyer.create(name:"Bob")
 
